@@ -9,6 +9,8 @@ import Planner from "./pages/Planner";
 import Partners from "./pages/Partners";
 import FAQ from "./pages/FAQ";
 import Search from "./pages/Search";
+import HowItWorks from "./pages/HowItWorks";
+import Tomorrow from "./pages/Tomorrow";
 
 function Layout({ children }) {
   return (
@@ -20,12 +22,15 @@ function Layout({ children }) {
         </Link>
 
         <nav>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/inverness">Inverness</NavLink>
           <NavLink to="/loch-ness">Loch Ness</NavLink>
           <NavLink to="/skye">Skye</NavLink>
           <NavLink to="/nc500">NC500</NavLink>
           <NavLink to="/transport">Transport</NavLink>
           <NavLink to="/search">Search</NavLink>
+          <NavLink to="/how-it-works">How It Works</NavLink>
+          <NavLink to="/tomorrow">Today/Tomorrow</NavLink>
           <NavLink className="nav-cta" to="/planner">Plan Trip</NavLink>
         </nav>
       </header>
@@ -63,6 +68,8 @@ export default function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/tomorrow" element={<Tomorrow />} />
         </Routes>
       </Layout>
     </BrowserRouter>

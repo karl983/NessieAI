@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 export default function Planner() {
   const [plan, setPlan] = useState(null);
@@ -20,6 +21,11 @@ export default function Planner() {
   }
 
   return (
+    <>
+      <SEO
+        title="Scottish Highlands AI Trip Planner | Nessie AI"
+        description="Build a personalised Inverness, Loch Ness, Skye or NC500 itinerary with Nessie AI."
+      />
     <main className="page">
       <section className="page-hero">
         <span className="kicker">AI itinerary builder</span>
@@ -61,5 +67,6 @@ export default function Planner() {
         </div>
       </section>
     </main>
+    </>
   );
 }

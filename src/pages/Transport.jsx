@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 const services = [
   ["✈️", "Airport Transfers", "Inverness Airport to hotels, lodges, golf resorts and Highland destinations."],
   ["🚗", "Private Drivers", "Custom routes for Loch Ness, Skye, castles, whisky and scenic days."],
@@ -18,6 +19,11 @@ export default function Transport() {
   }
 
   return (
+    <>
+      <SEO
+        title="Highlands Transport & Private Tours | Inverness Transfers"
+        description="Request Inverness airport transfers, private drivers, whisky tours, Skye transport, Loch Ness tours and Highland travel help."
+      />
     <main className="page">
       <section className="page-hero">
         <span className="kicker">Airport transfers · Private tours · Drivers</span>
@@ -55,5 +61,6 @@ export default function Transport() {
         </form>
       </section>
     </main>
+    </>
   );
 }

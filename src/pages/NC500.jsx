@@ -1,7 +1,13 @@
 import DestinationPage from "../components/DestinationPage";
+import SEO from "../components/SEO";
 
 export default function NC500() {
   return (
+    <>
+      <SEO
+        title="NC500 Route Planner | North Coast 500 Itinerary Help"
+        description="Build a realistic NC500 route with stops, driving advice, overnight planning and Highlands travel support."
+      />
     <DestinationPage
       kicker="Road trips · Routes · Highland driving"
       title="NC500 Route Planner"
@@ -27,5 +33,6 @@ export default function NC500() {
         ]
       }}
     />
+    </>
   );
 }

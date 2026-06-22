@@ -1,7 +1,13 @@
 import DestinationPage from "../components/DestinationPage";
+import SEO from "../components/SEO";
 
 export default function Skye() {
   return (
+    <>
+      <SEO
+        title="Isle of Skye Trip Planner from Inverness | Nessie AI"
+        description="Plan Isle of Skye routes from Inverness with realistic timing, top stops, private transport and Highland travel advice."
+      />
     <DestinationPage
       kicker="Big scenery · Long drives · Smart planning"
       title="Isle of Skye Trip Planner"
@@ -27,5 +33,6 @@ export default function Skye() {
         ]
       }}
     />
+    </>
   );
 }
