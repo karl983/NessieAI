@@ -1,4 +1,6 @@
 import SEO from "../components/SEO";
+import LeadCapture from "../components/LeadCapture";
+
 const services = [
   ["✈️", "Airport Transfers", "Inverness Airport to hotels, lodges, golf resorts and Highland destinations."],
   ["🚗", "Private Drivers", "Custom routes for Loch Ness, Skye, castles, whisky and scenic days."],
@@ -9,58 +11,49 @@ const services = [
 ];
 
 export default function Transport() {
-  function sendLead(e) {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const body = encodeURIComponent(
-      `Name: ${f.get("name")}\nEmail: ${f.get("email")}\nDate: ${f.get("date")}\nPassengers: ${f.get("passengers")}\nRequest: ${f.get("request")}`
-    );
-    window.location.href = `mailto:hello@nessieai.co.uk?subject=Nessie AI Transport Enquiry&body=${body}`;
-  }
-
   return (
-    <>
-      <SEO
-        title="Highlands Transport & Private Tours | Inverness Transfers"
-        description="Request Inverness airport transfers, private drivers, whisky tours, Skye transport, Loch Ness tours and Highland travel help."
-      />
     <main className="page">
-      <section className="page-hero">
-        <span className="kicker">Airport transfers · Private tours · Drivers</span>
-        <h1>Highlands Transport & Private Tours</h1>
-        <p>Airport transfers, private drivers, whisky tours, golf transport and custom Highland journeys.</p>
+      <SEO
+        title="Inverness Airport Transfers & Highlands Private Drivers | Nessie AI"
+        description="Request Inverness airport transfers, private drivers, Loch Ness tours, Skye transport, whisky tours and Highland travel help."
+      />
+
+      <section className="page-hero transport-hero">
+        <span className="kicker">Transport · Transfers · Private tours</span>
+        <h1>Need a driver in the Highlands?</h1>
+        <p>
+          Airport transfers, Loch Ness trips, Isle of Skye days, whisky tours,
+          golf transport and custom private Highland journeys.
+        </p>
       </section>
 
       <section className="section">
-        <span className="kicker">Transport options</span>
-        <h2>What do you need?</h2>
+        <span className="kicker">Popular requests</span>
+        <h2>What visitors usually need.</h2>
+
         <div className="card-grid">
           {services.map(([icon, title, text]) => (
             <article className="feature-card" key={title}>
-              <span>{icon}</span><h3>{title}</h3><p>{text}</p>
+              <span>{icon}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="transport-section">
+      <section className="transport-section money-section">
         <div>
           <span className="kicker">Send enquiry</span>
-          <h2>Request a driver or private tour</h2>
-          <p>This opens an email for now. Next step is Cloudflare form/API capture.</p>
+          <h2>Request transport help.</h2>
+          <p>
+            Tell us where you are going, when you are travelling and how many
+            people are in your group. For MVP this opens an email enquiry.
+          </p>
         </div>
 
-        <form className="lead-form" onSubmit={sendLead}>
-          <h3>Transport Enquiry</h3>
-          <input name="name" placeholder="Your name" required />
-          <input name="email" placeholder="Email address" required />
-          <input name="date" placeholder="Travel date" />
-          <input name="passengers" placeholder="Number of passengers" />
-          <textarea name="request" placeholder="Where do you need to go?" required />
-          <button type="submit">Send Transport Enquiry</button>
-        </form>
+        <LeadCapture type="Transport Enquiry" button="Send Transport Enquiry" />
       </section>
     </main>
-    </>
   );
 }

@@ -12,7 +12,7 @@ export default function NC500() {
       kicker="Road trips · Routes · Highland driving"
       title="NC500 Route Planner"
       intro="Build a realistic North Coast 500 itinerary without rushing, backtracking or missing the best stops across the Highlands."
-      image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200"
+      image="/images/destinations/nc500.jpg"
       cta="Plan NC500"
       transportText="The NC500 needs sensible overnight stops, realistic mileage and awareness of Highland roads. Nessie AI can help structure it properly."
       highlights={[

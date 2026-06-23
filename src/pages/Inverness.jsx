@@ -1,7 +1,8 @@
 import DestinationPage from "../components/DestinationPage";
-import AttractionCard from "../components/AttractionCard";
+import AttractionImageCard from "../components/AttractionImageCard";
 import CTASection from "../components/CTASection";
 import attractions from "../data/inverness";
+import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
 
 export default function Inverness() {
@@ -16,7 +17,7 @@ export default function Inverness() {
         kicker="City base · Food · Day trips"
         title="Inverness Travel Guide"
         intro="Use Inverness as your base for Loch Ness, Culloden, Clava Cairns, Fort George, whisky country, Skye day trips and Highland adventures."
-        image="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=1200"
+        image="/images/destinations/inverness.jpg"
         cta="Plan Inverness"
         transportText="Need transport around Inverness, from the airport, or out to Loch Ness, Skye, whisky country or castles?"
         highlights={[
@@ -43,10 +44,10 @@ export default function Inverness() {
         <h2>Explore Inverness</h2>
 
         <div className="card-grid">
-          {attractions.map(([emoji, title, description, tag]) => (
-            <AttractionCard
+          {attractions.map(([emoji, title, description, tag], index) => (
+            <AttractionImageCard
               key={title}
-              emoji={emoji}
+              image={attractionImages.inverness[index % attractionImages.inverness.length]}
               title={title}
               description={description}
               tag={tag}

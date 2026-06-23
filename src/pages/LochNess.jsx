@@ -1,7 +1,8 @@
 import DestinationPage from "../components/DestinationPage";
-import AttractionCard from "../components/AttractionCard";
+import AttractionImageCard from "../components/AttractionImageCard";
 import CTASection from "../components/CTASection";
 import attractions from "../data/lochness";
+import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
 
 export default function LochNess() {
@@ -16,7 +17,7 @@ export default function LochNess() {
         kicker="Castles · Cruises · Viewpoints"
         title="Loch Ness Planner"
         intro="Plan a Loch Ness day that actually works: castles, cruises, quiet viewpoints, villages, waterfalls and easy routes from Inverness."
-        image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200"
+        image="/images/destinations/loch-ness.jpg"
         cta="Plan Loch Ness"
         transportText="Loch Ness is easy to underestimate. A local driver can help combine Urquhart Castle, cruise points, Dores, Foyers and hidden stops without wasting the day."
         highlights={[
@@ -43,10 +44,10 @@ export default function LochNess() {
         <h2>What to see around Loch Ness</h2>
 
         <div className="card-grid">
-          {attractions.map(([emoji, title, description, tag]) => (
-            <AttractionCard
+          {attractions.map(([emoji, title, description, tag], index) => (
+            <AttractionImageCard
               key={title}
-              emoji={emoji}
+              image={attractionImages.lochness[index % attractionImages.lochness.length]}
               title={title}
               description={description}
               tag={tag}

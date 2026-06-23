@@ -12,7 +12,7 @@ export default function Skye() {
       kicker="Big scenery · Long drives · Smart planning"
       title="Isle of Skye Trip Planner"
       intro="Skye is spectacular, but bad planning ruins it. Nessie AI helps build realistic routes around travel time, weather, daylight and must-see stops."
-      image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200"
+      image="/images/destinations/skye.jpg"
       cta="Plan Skye"
       transportText="Skye from Inverness is possible in one day, but it is a long trip. A private driver or guide can make the difference between a rushed day and a brilliant one."
       highlights={[

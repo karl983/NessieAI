@@ -9,8 +9,9 @@ import Planner from "./pages/Planner";
 import Partners from "./pages/Partners";
 import FAQ from "./pages/FAQ";
 import Search from "./pages/Search";
-import HowItWorks from "./pages/HowItWorks";
 import Tomorrow from "./pages/Tomorrow";
+import HowItWorks from "./pages/HowItWorks";
+import WhyNessie from "./pages/WhyNessie";
 
 function Layout({ children }) {
   return (
@@ -28,9 +29,6 @@ function Layout({ children }) {
           <NavLink to="/skye">Skye</NavLink>
           <NavLink to="/nc500">NC500</NavLink>
           <NavLink to="/transport">Transport</NavLink>
-          <NavLink to="/search">Search</NavLink>
-          <NavLink to="/how-it-works">How It Works</NavLink>
-          <NavLink to="/tomorrow">Today/Tomorrow</NavLink>
           <NavLink className="nav-cta" to="/planner">Plan Trip</NavLink>
         </nav>
       </header>
@@ -43,8 +41,8 @@ function Layout({ children }) {
           <p>Your AI travel concierge for Inverness and the Scottish Highlands.</p>
         </div>
         <div>
-          <Link to="/transport">Transport</Link>
-          <Link to="/planner">Planner</Link>
+          <Link to="/how-it-works">How It Works</Link>
+          <Link to="/why-nessie">Why Nessie</Link>
           <Link to="/partners">Partners</Link>
           <Link to="/faq">FAQ</Link>
         </div>
@@ -68,8 +66,9 @@ export default function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/tomorrow" element={<Tomorrow />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/why-nessie" element={<WhyNessie />} />
         </Routes>
       </Layout>
     </BrowserRouter>

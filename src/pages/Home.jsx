@@ -1,50 +1,56 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
+import ImageDestinationGrid from "../components/ImageDestinationGrid";
 
 export default function Home() {
   return (
-    <main className="home-page">
+    <main className="home-page-clean">
       <SEO
         title="Nessie AI | Inverness & Scottish Highlands AI Travel Concierge"
-        description="Plan Inverness, Loch Ness, Isle of Skye and NC500 trips with Nessie AI, your Scottish Highlands AI travel concierge."
+        description="Plan Inverness, Loch Ness, Isle of Skye and NC500 trips with Nessie AI."
       />
 
-      <section className="home-hero">
-        <div className="home-overlay" />
+      <section className="clean-hero">
+        <div className="clean-hero-content">
+          <span className="kicker">Inverness · Loch Ness · Skye · NC500</span>
 
-        <div className="home-content">
-          <span className="kicker">Scottish Highlands AI Travel Concierge</span>
-
-          <h1>Plan your Inverness and Highlands trip with Nessie AI.</h1>
+          <h1>Your AI travel concierge for the Scottish Highlands.</h1>
 
           <p>
-            Build smarter itineraries for Inverness, Loch Ness, Isle of Skye and the NC500.
-            Get realistic routes, local-style suggestions and transport help.
+            Plan better days around Inverness, Loch Ness, Isle of Skye and the NC500.
+            Get realistic routes, local-style ideas and transport help when you need it.
           </p>
 
           <div className="actions">
-            <Link className="btn primary" to="/planner">Plan My Trip</Link>
-            <Link className="btn secondary" to="/tomorrow">What Should I Do Tomorrow?</Link>
+            <Link className="btn primary" to="/tomorrow">What should I do tomorrow?</Link>
+            <Link className="btn secondary" to="/planner">Build my trip</Link>
           </div>
 
-          <div className="home-chat-card">
-            <h2>Ask Nessie</h2>
-            <p>Tell Nessie where you are staying, when you are visiting and what kind of trip you want.</p>
+          <div className="clean-chat-card">
+            <span className="kicker">Ask Nessie</span>
+            <h2>Where are you staying?</h2>
+            <p>Tell Nessie your base, dates, interests and whether you have a car.</p>
 
             <div className="fake-input">
-              <span>Ask about Loch Ness, Skye, whisky, castles...</span>
+              <span>Example: 3 days in Inverness, no car, love scenery...</span>
               <Link to="/planner">Start</Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="home-simple-links">
+      <section className="clean-links">
         <Link to="/inverness">Inverness</Link>
         <Link to="/loch-ness">Loch Ness</Link>
         <Link to="/skye">Isle of Skye</Link>
         <Link to="/nc500">NC500</Link>
         <Link to="/transport">Transport</Link>
+      </section>
+
+      <section className="clean-destinations">
+        <span className="kicker">Start with a destination</span>
+        <h2>Choose the part of the Highlands you want to explore.</h2>
+        <ImageDestinationGrid />
       </section>
     </main>
   );
