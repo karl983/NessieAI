@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import ImageDestinationGrid from "../components/ImageDestinationGrid";
+import NessieChat from "../components/NessieChat";
+import MiniConcierge from "../components/MiniConcierge";
 
 export default function Home() {
   return (
@@ -26,16 +28,7 @@ export default function Home() {
             <Link className="btn secondary" to="/planner">Build my trip</Link>
           </div>
 
-          <div className="clean-chat-card">
-            <span className="kicker">Ask Nessie</span>
-            <h2>Where are you staying?</h2>
-            <p>Tell Nessie your base, dates, interests and whether you have a car.</p>
-
-            <div className="fake-input">
-              <span>Example: 3 days in Inverness, no car, love scenery...</span>
-              <Link to="/planner">Start</Link>
-            </div>
-          </div>
+          <NessieChat page="home" />
         </div>
       </section>
 

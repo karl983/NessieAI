@@ -1,9 +1,10 @@
 import DestinationPage from "../components/DestinationPage";
 import AttractionImageCard from "../components/AttractionImageCard";
-import CTASection from "../components/CTASection";
+import PageLeadSection from "../components/PageLeadSection";
 import attractions from "../data/inverness";
 import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
+import NessiePageChat from "../components/NessiePageChat";
 
 export default function Inverness() {
   return (
@@ -39,6 +40,7 @@ export default function Inverness() {
         }}
       />
 
+      
       <section className="section">
         <span className="kicker">Local highlights</span>
         <h2>Explore Inverness</h2>
@@ -56,14 +58,15 @@ export default function Inverness() {
         </div>
       </section>
 
-      <CTASection
-        kicker="Need transport?"
-        title="Get from Inverness to the best of the Highlands."
-        text="Airport transfers, Loch Ness trips, whisky tours, castles, golf transport and custom private driver enquiries."
-        button="Request Transport"
-        link="/transport"
+
+      <PageLeadSection
+        title="Need help planning Inverness?"
+        text="Tell us your dates, interests and whether you need transport. Nessie AI can help shape your trip."
+        type="Inverness Planning Enquiry"
       />
+      <NessiePageChat page="inverness" />
     </>
+      <NessiePageChat page="inverness" />
     </>
   );
 }

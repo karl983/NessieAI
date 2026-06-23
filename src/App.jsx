@@ -35,6 +35,11 @@ function Layout({ children }) {
 
       {children}
 
+      <div className="mobile-sticky-cta">
+        <Link to="/planner">Plan Trip</Link>
+        <Link to="/transport">Transport</Link>
+      </div>
+
       <footer className="footer">
         <div>
           <strong>Nessie AI</strong>

@@ -6,13 +6,15 @@ export default function DestinationPage({
   intro,
   image,
   cta,
-  itinerary,
-  transportText
+  itinerary
 }) {
   return (
-    <main className="destination-page">
-      <section className="destination-hero">
-        <div className="destination-copy">
+    <main className="destination-page-clean">
+      <section
+        className="clean-destination-hero"
+        style={{ "--hero-image": `url(${image})` }}
+      >
+        <div className="clean-destination-content">
           <span className="kicker">{kicker}</span>
           <h1>{title}</h1>
           <p>{intro}</p>
@@ -20,10 +22,6 @@ export default function DestinationPage({
           <div className="actions">
             <Link className="btn primary" to="/planner">{cta}</Link>
           </div>
-        </div>
-
-        <div className="destination-image">
-          <img src={image} alt={title} />
         </div>
       </section>
 
@@ -46,8 +44,6 @@ export default function DestinationPage({
           <Link className="btn primary" to="/planner">Build custom itinerary</Link>
         </div>
       </section>
-
-
     </main>
   );
 }

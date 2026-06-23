@@ -12,19 +12,28 @@ const services = [
 
 export default function Transport() {
   return (
-    <main className="page">
+    <main className="destination-page-clean">
       <SEO
         title="Inverness Airport Transfers & Highlands Private Drivers | Nessie AI"
         description="Request Inverness airport transfers, private drivers, Loch Ness tours, Skye transport, whisky tours and Highland travel help."
       />
 
-      <section className="page-hero transport-hero">
-        <span className="kicker">Transport · Transfers · Private tours</span>
-        <h1>Need a driver in the Highlands?</h1>
-        <p>
-          Airport transfers, Loch Ness trips, Isle of Skye days, whisky tours,
-          golf transport and custom private Highland journeys.
-        </p>
+      <section
+        className="clean-destination-hero"
+        style={{ "--hero-image": `url(/images/destinations/transport-driver.jpg)` }}
+      >
+        <div className="clean-destination-content">
+          <span className="kicker">Transport · Transfers · Private tours</span>
+          <h1>Need a driver in the Highlands?</h1>
+          <p>
+            Airport transfers, Loch Ness trips, Isle of Skye days, whisky tours,
+            golf transport and custom private Highland journeys.
+          </p>
+
+          <div className="actions">
+            <a className="btn primary" href="#transport-form">Send enquiry</a>
+          </div>
+        </div>
       </section>
 
       <section className="section">
@@ -42,13 +51,13 @@ export default function Transport() {
         </div>
       </section>
 
-      <section className="transport-section money-section">
+      <section className="transport-section money-section" id="transport-form">
         <div>
           <span className="kicker">Send enquiry</span>
           <h2>Request transport help.</h2>
           <p>
             Tell us where you are going, when you are travelling and how many
-            people are in your group. For MVP this opens an email enquiry.
+            people are in your group.
           </p>
         </div>
 

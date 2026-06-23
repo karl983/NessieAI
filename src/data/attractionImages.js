@@ -1,26 +1,37 @@
 export const attractionImages = {
   inverness: [
-    "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=900",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900"
+    "/images/attractions/inverness/castle-view.jpg",
+    "/images/attractions/inverness/river-ness.jpg",
+    "/images/attractions/inverness/victorian-market.jpg",
+    "/images/attractions/inverness/inverness-cathedral.jpg",
+    "/images/attractions/inverness/eden-court.jpg",
+    "/images/attractions/inverness/culloden-battlefield.jpg",
+    "/images/attractions/inverness/clava-cairns.jpg",
+    "/images/attractions/inverness/cawdor-castle.jpg"
   ],
   lochness: [
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
-    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900"
+    "/images/attractions/lochness/urquhart-castle.jpg",
+    "/images/attractions/lochness/lochness-cruise.jpg",
+    "/images/destinations/loch-ness.jpg",
+    "/images/attractions/lochness/falls-of-foyers.jpg",
+    "/images/attractions/lochness/fort-augustus.jpg",
+    "/images/attractions/lochness/lochness-viewpoint.jpg"
   ],
   skye: [
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900",
-    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900"
+    "/images/attractions/skye/old-man-of-storr.jpg",
+    "/images/attractions/skye/quiraing.jpg",
+    "/images/attractions/skye/fairy-pools.jpg",
+    "/images/attractions/skye/neist-point.jpg",
+    "/images/attractions/skye/portree.jpg",
+    "/images/attractions/skye/fairy-glen.jpg"
   ],
   nc500: [
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900",
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900",
-    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900"
+    "/images/attractions/nc500/achmelvich-beach.jpg",
+    "/images/attractions/nc500/bealach-na-ba.jpg",
+    "/images/attractions/nc500/dunrobin-castle.jpg",
+    "/images/attractions/nc500/kylesku-bridge.jpg",
+    "/images/attractions/nc500/ullapool.jpg",
+    "/images/attractions/nc500/portree.jpg",
+    "/images/attractions/nc500/inverness.jpg"
   ]
 };
