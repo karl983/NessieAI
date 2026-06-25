@@ -4,7 +4,6 @@ import PageLeadSection from "../components/PageLeadSection";
 import attractions from "../data/lochness";
 import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
-import NessiePageChat from "../components/NessiePageChat";
 
 export default function LochNess() {
   return (
@@ -64,9 +63,9 @@ export default function LochNess() {
         text="Cruises, Urquhart Castle, Dores, Foyers and transport can be hard to combine. Send us your plan."
         type="Loch Ness Planning Enquiry"
       />
-      <NessiePageChat page="lochness" />
+      
     </>
-      <NessiePageChat page="lochness" />
+      
     </>
   );
 }

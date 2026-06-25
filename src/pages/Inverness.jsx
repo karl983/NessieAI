@@ -4,7 +4,6 @@ import PageLeadSection from "../components/PageLeadSection";
 import attractions from "../data/inverness";
 import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
-import NessiePageChat from "../components/NessiePageChat";
 
 export default function Inverness() {
   return (
@@ -64,9 +63,9 @@ export default function Inverness() {
         text="Tell us your dates, interests and whether you need transport. Nessie AI can help shape your trip."
         type="Inverness Planning Enquiry"
       />
-      <NessiePageChat page="inverness" />
+      
     </>
-      <NessiePageChat page="inverness" />
+      
     </>
   );
 }

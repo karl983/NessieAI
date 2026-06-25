@@ -1,8 +1,5 @@
-import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import ImageDestinationGrid from "../components/ImageDestinationGrid";
-import NessieChat from "../components/NessieChat";
-import MiniConcierge from "../components/MiniConcierge";
 
 export default function Home() {
   return (
@@ -22,25 +19,10 @@ export default function Home() {
             Plan better days around Inverness, Loch Ness, Isle of Skye and the NC500.
             Get realistic routes, local-style ideas and transport help when you need it.
           </p>
-
-          <div className="actions">
-            <Link className="btn primary" to="/tomorrow">What should I do tomorrow?</Link>
-            <Link className="btn secondary" to="/planner">Build my trip</Link>
-          </div>
-
-          <NessieChat page="home" />
         </div>
       </section>
 
-      <section className="clean-links">
-        <Link to="/inverness">Inverness</Link>
-        <Link to="/loch-ness">Loch Ness</Link>
-        <Link to="/skye">Isle of Skye</Link>
-        <Link to="/nc500">NC500</Link>
-        <Link to="/transport">Transport</Link>
-      </section>
-
-      <section className="clean-destinations">
+      <section className="clean-destinations move-up">
         <span className="kicker">Start with a destination</span>
         <h2>Choose the part of the Highlands you want to explore.</h2>
         <ImageDestinationGrid />

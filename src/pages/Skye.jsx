@@ -3,7 +3,6 @@ import AttractionImageCard from "../components/AttractionImageCard";
 import attractions from "../data/skye";
 import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
-import NessiePageChat from "../components/NessiePageChat";
 import PageLeadSection from "../components/PageLeadSection";
 
 export default function Skye() {
@@ -54,7 +53,7 @@ export default function Skye() {
         text="Skye is spectacular but easy to overpack. Tell us your dates, base and transport situation."
         type="Skye Planning Enquiry"
       />
-      <NessiePageChat page="skye" />
+      
     </>
   );
 }

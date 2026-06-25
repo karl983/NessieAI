@@ -1,63 +1,91 @@
+import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import LeadCapture from "../components/LeadCapture";
 
 const services = [
-  ["✈️", "Airport Transfers", "Inverness Airport to hotels, lodges, golf resorts and Highland destinations."],
-  ["🚗", "Private Drivers", "Custom routes for Loch Ness, Skye, castles, whisky and scenic days."],
-  ["🥃", "Whisky Tours", "Speyside and Highland distillery routes without worrying about driving."],
-  ["🏌️", "Golf Transport", "Royal Dornoch, Castle Stuart, Nairn and group golf logistics."],
-  ["🛳️", "Cruise Passengers", "Day tours and transfers for visitors arriving into Highland ports."],
-  ["💼", "Corporate Travel", "Reliable transport for business visitors, events and premium guests."]
+  {
+    title: "Private Drivers",
+    slug: "private-drivers",
+    image: "/images/transport/transport-driver.jpg",
+    text: "Private Highland drivers for Loch Ness, Skye, castles, whisky stops, golf days and custom routes."
+  },
+  {
+    title: "Airport Transfers",
+    slug: "airport-transfers",
+    image: "/images/transport/airport-transfers.jpg",
+    text: "Inverness Airport pickups and drop-offs for hotels, lodges, groups and onward Highland travel."
+  },
+  {
+    title: "Cruise Transfers",
+    slug: "cruise-transfers",
+    image: "/images/transport/cruise-transfers.jpg",
+    text: "Transfers and day-trip planning for cruise passengers arriving into Invergordon and nearby ports."
+  },
+  {
+    title: "Golf Transfers",
+    slug: "golf-transfers",
+    image: "/images/transport/golf-transfers.jpg",
+    text: "Golf transport for Royal Dornoch, Castle Stuart, Nairn, Brora and Highland golf routes."
+  },
+  {
+    title: "Corporate Travel",
+    slug: "corporate-travel",
+    image: "/images/transport/corporate-travel.jpg",
+    text: "Reliable executive travel for business visitors, meetings, private aviation and premium guest movement."
+  },
+  {
+    title: "Whisky Tours",
+    slug: "whisky-tours",
+    image: "/images/transport/whisky-tours.jpg",
+    text: "Driver-led whisky days around Tomatin, Glen Ord, Speyside and Highland distillery routes."
+  }
 ];
 
 export default function Transport() {
   return (
     <main className="destination-page-clean">
       <SEO
-        title="Inverness Airport Transfers & Highlands Private Drivers | Nessie AI"
-        description="Request Inverness airport transfers, private drivers, Loch Ness tours, Skye transport, whisky tours and Highland travel help."
+        title="Inverness Transport, Private Drivers & Highland Transfers | Nessie AI"
+        description="Request Inverness airport transfers, private drivers, cruise transfers, golf transport, corporate travel and whisky tour transport."
       />
 
       <section
         className="clean-destination-hero"
-        style={{ "--hero-image": `url(/images/destinations/transport-driver.jpg)` }}
+        style={{ "--hero-image": `url(/images/transport/transport-driver.jpg)` }}
       >
         <div className="clean-destination-content">
-          <span className="kicker">Transport · Transfers · Private tours</span>
-          <h1>Need a driver in the Highlands?</h1>
+          <span className="kicker">Transport · Drivers · Transfers</span>
+          <h1>Highland transport without the hassle.</h1>
           <p>
-            Airport transfers, Loch Ness trips, Isle of Skye days, whisky tours,
-            golf transport and custom private Highland journeys.
+            Airport transfers, private drivers, cruise pickups, golf transport, whisky tours
+            and custom Highland routes around Inverness, Loch Ness, Skye and the NC500.
           </p>
-
-          <div className="actions">
-            <a className="btn primary" href="#transport-form">Send enquiry</a>
-          </div>
         </div>
       </section>
 
       <section className="section">
-        <span className="kicker">Popular requests</span>
-        <h2>What visitors usually need.</h2>
+        <span className="kicker">Transport options</span>
+        <h2>What do you need?</h2>
 
-        <div className="card-grid">
-          {services.map(([icon, title, text]) => (
-            <article className="feature-card" key={title}>
-              <span>{icon}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
+        <div className="transport-card-grid">
+          {services.map((service) => (
+            <Link className="transport-service-card" key={service.title} to={`/transport/${service.slug}`}>
+              <img src={service.image} alt={service.title} />
+              <div>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="transport-section money-section" id="transport-form">
+      <section className="transport-section money-section">
         <div>
-          <span className="kicker">Send enquiry</span>
-          <h2>Request transport help.</h2>
+          <span className="kicker">Transport enquiry</span>
+          <h2>Request Highland transport.</h2>
           <p>
-            Tell us where you are going, when you are travelling and how many
-            people are in your group.
+            Tell us your date, pickup point, destination, group size and what kind of trip you need.
           </p>
         </div>
 

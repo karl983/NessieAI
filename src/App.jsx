@@ -1,3 +1,4 @@
+import ScrollToTop from "./components/ScrollToTop";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import Inverness from "./pages/Inverness";
@@ -5,6 +6,7 @@ import LochNess from "./pages/LochNess";
 import Skye from "./pages/Skye";
 import NC500 from "./pages/NC500";
 import Transport from "./pages/Transport";
+import TransportDetail from "./pages/TransportDetail";
 import Planner from "./pages/Planner";
 import Partners from "./pages/Partners";
 import FAQ from "./pages/FAQ";
@@ -12,13 +14,14 @@ import Search from "./pages/Search";
 import Tomorrow from "./pages/Tomorrow";
 import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
+import PlaceDetail from "./pages/PlaceDetail";
 
 function Layout({ children }) {
   return (
     <div className="app-shell">
       <header className="nav-bar">
         <Link className="logo" to="/">
-          <span className="logo-mark">N</span>
+          <span className="logo-mark"><img src="/images/nessie-mascot.png" alt="Nessie AI" /></span>
           <span><strong>Nessie AI</strong><small>Highlands Concierge</small></span>
         </Link>
 
@@ -59,6 +62,7 @@ function Layout({ children }) {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -67,6 +71,7 @@ export default function App() {
           <Route path="/skye" element={<Skye />} />
           <Route path="/nc500" element={<NC500 />} />
           <Route path="/transport" element={<Transport />} />
+          <Route path="/transport/:slug" element={<TransportDetail />} />
           <Route path="/planner" element={<Planner />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/faq" element={<FAQ />} />
@@ -74,6 +79,7 @@ export default function App() {
           <Route path="/tomorrow" element={<Tomorrow />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/why-nessie" element={<WhyNessie />} />
+          <Route path="/place/:slug" element={<PlaceDetail />} />
         </Routes>
       </Layout>
     </BrowserRouter>

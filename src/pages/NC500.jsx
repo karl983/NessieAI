@@ -3,7 +3,6 @@ import AttractionImageCard from "../components/AttractionImageCard";
 import attractions from "../data/nc500";
 import { attractionImages } from "../data/attractionImages";
 import SEO from "../components/SEO";
-import NessiePageChat from "../components/NessiePageChat";
 import PageLeadSection from "../components/PageLeadSection";
 
 export default function NC500() {
@@ -54,7 +53,7 @@ export default function NC500() {
         text="Tell us your trip length, overnight stops and whether you need route or transport help."
         type="NC500 Planning Enquiry"
       />
-      <NessiePageChat page="nc500" />
+      
     </>
   );
 }
