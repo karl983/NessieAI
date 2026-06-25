@@ -4642,3 +4642,27 @@ main > section:empty {
     height: 132px !important;
   }
 }
+
+/* Ask Nessie: higher + almost see-through */
+.ask-nessie-section {
+  margin-top: -340px !important;
+}
+
+.ask-nessie-card {
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .18), transparent 34%),
+    linear-gradient(145deg, rgba(7, 8, 18, .34), rgba(72, 0, 52, .34)) !important;
+  border-color: rgba(255,255,255,.22) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.ask-nessie-answer {
+  background: rgba(0,0,0,.24) !important;
+}
+
+@media (max-width: 760px) {
+  .ask-nessie-section {
+    margin-top: -180px !important;
+  }
+}
