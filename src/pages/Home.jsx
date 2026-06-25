@@ -1,6 +1,5 @@
 import SEO from "../components/SEO";
 import ImageDestinationGrid from "../components/ImageDestinationGrid";
-import HomeNessieAsk from "../components/HomeNessieAsk";
 
 export default function Home() {
   return (
@@ -22,8 +21,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-      <HomeNessieAsk />
 
       <section className="clean-destinations move-up">
         <span className="kicker">Start with a destination</span>
