@@ -4324,3 +4324,107 @@ main > section:empty {
     display: none;
   }
 }
+
+/* Premium Ask Nessie floating button */
+.nessie-orb {
+  position: relative !important;
+  min-width: 178px !important;
+  min-height: 58px !important;
+  padding: 16px 22px 16px 72px !important;
+  border-radius: 999px !important;
+  background: rgba(0, 0, 0, .88) !important;
+  border: 1px solid rgba(255, 255, 255, .16) !important;
+  color: #fff !important;
+  font-weight: 950 !important;
+  letter-spacing: -.02em !important;
+  box-shadow: 0 22px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(214,0,115,.28) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.nessie-orb img {
+  position: absolute !important;
+  left: -10px !important;
+  top: -24px !important;
+  width: 86px !important;
+  height: 86px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.65)) !important;
+}
+
+.nessie-orb span {
+  display: inline !important;
+  font-size: 16px !important;
+}
+
+/* Premium chat panel */
+.nessie-chat-window {
+  width: 430px !important;
+  margin-bottom: 28px !important;
+}
+
+.nessie-chat-inner {
+  padding: 46px 24px 24px !important;
+  border-radius: 34px !important;
+  background:
+    radial-gradient(circle at top right, rgba(214,0,115,.22), transparent 34%),
+    linear-gradient(180deg, rgba(12,16,28,.97), rgba(2,2,8,.97)) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  box-shadow: 0 34px 120px rgba(0,0,0,.76), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+.nessie-sitting {
+  top: -92px !important;
+  right: 26px !important;
+  width: 132px !important;
+  height: 132px !important;
+}
+
+.nessie-chat-title h2 {
+  font-size: 31px !important;
+  margin-bottom: 10px !important;
+}
+
+.nessie-chat-title p {
+  max-width: 320px !important;
+  color: rgba(255,255,255,.78) !important;
+}
+
+.nessie-chat-form {
+  margin-top: 18px !important;
+}
+
+.nessie-chat-form input {
+  min-height: 52px !important;
+  background: rgba(255,255,255,.075) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+.nessie-chat-form button {
+  min-height: 52px !important;
+  padding: 0 20px !important;
+  background: linear-gradient(135deg, #ff2aa1, #c0006b) !important;
+  box-shadow: 0 10px 30px rgba(214,0,115,.35) !important;
+}
+
+.nessie-chat-answer {
+  max-height: 340px !important;
+  background: rgba(255,255,255,.075) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+}
+
+@media (max-width: 700px) {
+  .nessie-chat-window {
+    width: calc(100vw - 22px) !important;
+  }
+
+  .nessie-orb {
+    min-width: 64px !important;
+    padding: 14px 18px 14px 58px !important;
+  }
+
+  .nessie-orb span {
+    display: none !important;
+  }
+}
