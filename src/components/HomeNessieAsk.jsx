@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const examples = [
   "Best lunch in Inverness",
@@ -13,6 +13,11 @@ export default function HomeNessieAsk() {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const threadEndRef = useRef(null);
+
+  useEffect(() => {
+    threadEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [messages, loading]);
 
   async function askNessie(e, overrideQuestion) {
     e?.preventDefault();
@@ -101,6 +106,8 @@ export default function HomeNessieAsk() {
                 <p>Nessie is checking the Highlands...</p>
               </div>
             )}
+
+            <div ref={threadEndRef} />
           </div>
         )}
 

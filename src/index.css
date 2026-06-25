@@ -4740,3 +4740,26 @@ main > section:empty {
     max-width: 94%;
   }
 }
+
+/* Make Ask Nessie panel more transparent */
+.ask-nessie-card {
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .12), transparent 34%),
+    linear-gradient(145deg, rgba(7, 8, 18, .22), rgba(72, 0, 52, .22)) !important;
+  border-color: rgba(255,255,255,.20) !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+}
+
+.ask-nessie-thread {
+  scroll-behavior: smooth;
+}
+
+.ask-nessie-message.assistant {
+  background: rgba(0,0,0,.24) !important;
+}
+
+.ask-nessie-message.user {
+  background: rgba(255, 48, 170, .20) !important;
+}
+
