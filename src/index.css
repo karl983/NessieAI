@@ -4584,3 +4584,61 @@ main > section:empty {
     margin-top: -48px !important;
   }
 }
+
+/* Ask Nessie final placement + readability */
+.ask-nessie-section {
+  margin-top: -250px !important;
+  padding-top: 0 !important;
+  padding-bottom: 42px !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.ask-nessie-card {
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .30), transparent 34%),
+    linear-gradient(145deg, rgba(7, 8, 18, .80), rgba(72, 0, 52, .80)) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.ask-nessie-mascot {
+  top: -92px !important;
+  right: 64px !important;
+  width: 180px !important;
+  height: 180px !important;
+}
+
+.ask-nessie-copy h2 {
+  font-size: clamp(48px, 6.4vw, 86px) !important;
+}
+
+.ask-nessie-copy p,
+.ask-nessie-answer p {
+  font-size: 19px !important;
+  line-height: 1.7 !important;
+  color: rgba(255,255,255,.96) !important;
+}
+
+.ask-nessie-form input {
+  font-size: 18px !important;
+  color: white !important;
+}
+
+.ask-nessie-chips button {
+  font-size: 15px !important;
+  color: white !important;
+}
+
+@media (max-width: 760px) {
+  .ask-nessie-section {
+    margin-top: -120px !important;
+  }
+
+  .ask-nessie-mascot {
+    top: -62px !important;
+    right: 22px !important;
+    width: 132px !important;
+    height: 132px !important;
+  }
+}
