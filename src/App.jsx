@@ -15,6 +15,7 @@ import Tomorrow from "./pages/Tomorrow";
 import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
 import PlaceDetail from "./pages/PlaceDetail";
+import HomeNessieAsk from "./components/HomeNessieAsk";
 
 function Layout({ children }) {
   return (
@@ -37,6 +38,8 @@ function Layout({ children }) {
       </header>
 
       {children}
+
+      <HomeNessieAsk />
 
       <div className="mobile-sticky-cta">
         <Link to="/planner">Plan Trip</Link>
