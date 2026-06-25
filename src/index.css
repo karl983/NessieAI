@@ -4101,3 +4101,97 @@ main > section:empty {
   display: block !important;
 }
 
+
+.home-nessie-ask {
+  padding: 28px 7vw 18px;
+  background: #020104;
+}
+
+.home-nessie-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 26px;
+  border-radius: 32px;
+  background: rgba(0,0,0,.76);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 24px 90px rgba(0,0,0,.38);
+}
+
+.home-nessie-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.home-nessie-head img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.home-nessie-head h2 {
+  margin: 4px 0 0;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1;
+}
+
+.home-nessie-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.home-nessie-form input {
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: white;
+  outline: none;
+}
+
+.home-nessie-form button {
+  border: 0;
+  border-radius: 18px;
+  padding: 0 22px;
+  background: #d60073;
+  color: white;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.home-nessie-form button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.home-nessie-answer {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.home-nessie-answer p {
+  margin: 0;
+  white-space: pre-line;
+  color: rgba(255,255,255,.86);
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .home-nessie-ask {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .home-nessie-form {
+    grid-template-columns: 1fr;
+  }
+
+  .home-nessie-form button {
+    padding: 15px;
+  }
+}
