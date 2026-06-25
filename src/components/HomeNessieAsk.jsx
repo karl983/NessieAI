@@ -11,33 +11,56 @@ const examples = [
 
 export default function HomeNessieAsk() {
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
   async function askNessie(e, overrideQuestion) {
     e?.preventDefault();
 
     const cleanQuestion = (overrideQuestion || question).trim();
-    if (!cleanQuestion) return;
+    if (!cleanQuestion || loading) return;
 
-    setQuestion(cleanQuestion);
+    const nextMessages = [
+      ...messages,
+      { role: "user", content: cleanQuestion }
+    ];
+
+    setQuestion("");
+    setMessages(nextMessages);
     setLoading(true);
-    setAnswer("");
 
     try {
+      const history = messages.slice(-8);
+
       const res = await fetch(import.meta.env.VITE_NESSIE_WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: cleanQuestion })
+        body: JSON.stringify({ question: cleanQuestion, history })
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(JSON.stringify(data));
+      const text = await res.text();
+      const data = text ? JSON.parse(text) : {};
 
-      setAnswer(data.answer || "Nessie could not answer that.");
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed with status ${res.status}`);
+      }
+
+      setMessages([
+        ...nextMessages,
+        {
+          role: "assistant",
+          content: data.answer || "Nessie could not answer that."
+        }
+      ]);
     } catch (err) {
       console.error(err);
-      setAnswer("Nessie had a wobble. Try again in a moment.");
+      setMessages([
+        ...nextMessages,
+        {
+          role: "assistant",
+          content: "Nessie had a wobble. Try again in a moment."
+        }
+      ]);
     } finally {
       setLoading(false);
     }
@@ -65,6 +88,22 @@ export default function HomeNessieAsk() {
           ))}
         </div>
 
+        {messages.length > 0 && (
+          <div className="ask-nessie-thread">
+            {messages.map((message, index) => (
+              <div key={index} className={`ask-nessie-message ${message.role}`}>
+                <p>{message.content}</p>
+              </div>
+            ))}
+
+            {loading && (
+              <div className="ask-nessie-message assistant">
+                <p>Nessie is checking the Highlands...</p>
+              </div>
+            )}
+          </div>
+        )}
+
         <form className="ask-nessie-form" onSubmit={askNessie}>
           <input
             value={question}
@@ -75,12 +114,6 @@ export default function HomeNessieAsk() {
             {loading ? "Thinking..." : "Ask Nessie"}
           </button>
         </form>
-
-        {(loading || answer) && (
-          <div className="ask-nessie-answer">
-            {loading ? <p>Nessie is checking the Highlands...</p> : <p>{answer}</p>}
-          </div>
-        )}
       </div>
     </section>
   );

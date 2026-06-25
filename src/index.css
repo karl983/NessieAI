@@ -4666,3 +4666,77 @@ main > section:empty {
     margin-top: -180px !important;
   }
 }
+
+.ask-nessie-thread {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.ask-nessie-message {
+  max-width: 82%;
+  padding: 16px 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.ask-nessie-message.user {
+  margin-left: auto;
+  background: rgba(255, 48, 170, .28);
+}
+
+.ask-nessie-message.assistant {
+  margin-right: auto;
+  background: rgba(0,0,0,.34);
+}
+
+.ask-nessie-message p {
+  margin: 0;
+  white-space: pre-line;
+  color: rgba(255,255,255,.96);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.ask-nessie-section {
+  margin-top: -340px !important;
+  padding-top: 0 !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.ask-nessie-card {
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .18), transparent 34%),
+    linear-gradient(145deg, rgba(7, 8, 18, .34), rgba(72, 0, 52, .34)) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.ask-nessie-copy h2 {
+  font-size: clamp(48px, 6.4vw, 86px) !important;
+}
+
+.ask-nessie-copy p {
+  font-size: 20px !important;
+  line-height: 1.65 !important;
+  color: rgba(255,255,255,.96) !important;
+}
+
+.ask-nessie-form input {
+  font-size: 18px !important;
+}
+
+@media (max-width: 760px) {
+  .ask-nessie-section {
+    margin-top: -180px !important;
+  }
+
+  .ask-nessie-message {
+    max-width: 94%;
+  }
+}
