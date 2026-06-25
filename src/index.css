@@ -4565,3 +4565,22 @@ main > section:empty {
     padding: 18px;
   }
 }
+
+.ask-nessie-section {
+  margin-top: -90px !important;
+  padding-top: 0 !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.ask-nessie-card {
+  background:
+    radial-gradient(circle at 85% 8%, rgba(255, 48, 170, .26), transparent 36%),
+    linear-gradient(145deg, rgba(7, 8, 18, .80), rgba(54, 0, 42, .80)) !important;
+}
+
+@media (max-width: 760px) {
+  .ask-nessie-section {
+    margin-top: -48px !important;
+  }
+}
