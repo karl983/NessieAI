@@ -4963,3 +4963,37 @@ main > section:empty {
   border: 1px solid rgba(255,255,255,.18);
 }
 
+
+.ask-nessie-transport-card {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 48, 170, .18);
+  border: 1px solid rgba(255,255,255,.18);
+  display: grid;
+  gap: 8px;
+}
+
+.ask-nessie-transport-card strong {
+  color: white;
+  font-size: 18px;
+}
+
+.ask-nessie-transport-card span {
+  color: rgba(255,255,255,.88);
+  line-height: 1.5;
+}
+
+.ask-nessie-transport-card a {
+  margin-top: 6px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.78);
+  color: white;
+  font-weight: 950;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.18);
+}
+

@@ -47,7 +47,14 @@ export default function HomeNessieAsk() {
 
       if (!res.ok) throw new Error(data.error || `Request failed with status ${res.status}`);
 
-      setMessages([...nextMessages, { role: "assistant", content: data.answer || "Nessie could not answer that." }]);
+      setMessages([
+        ...nextMessages,
+        {
+          role: "assistant",
+          content: data.answer || "Nessie could not answer that.",
+          showTransportCard: Boolean(data.showTransportCard)
+        }
+      ]);
     } catch (err) {
       console.error(err);
       setMessages([...nextMessages, { role: "assistant", content: "Nessie had a wobble. Try again in a moment." }]);
@@ -80,6 +87,14 @@ export default function HomeNessieAsk() {
             {messages.map((message, index) => (
               <div key={index} className={`ask-nessie-message ${message.role}`}>
                 <p>{message.content}</p>
+
+                {message.showTransportCard && (
+                  <div className="ask-nessie-transport-card">
+                    <strong>Need Highland transport?</strong>
+                    <span>Airport transfers, private drivers, cruise tours, golf transfers and Skye day trips.</span>
+                    <a href="/transport?source=ask-nessie">Get a transport quote</a>
+                  </div>
+                )}
               </div>
             ))}
 
