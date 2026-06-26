@@ -13,10 +13,12 @@ export default function HomeNessieAsk() {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const threadEndRef = useRef(null);
+  const threadRef = useRef(null);
 
   useEffect(() => {
-    threadEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    const el = threadRef.current;
+    if (!el) return;
+    el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
 
   async function askNessie(e, overrideQuestion) {
@@ -25,10 +27,7 @@ export default function HomeNessieAsk() {
     const cleanQuestion = (overrideQuestion || question).trim();
     if (!cleanQuestion || loading) return;
 
-    const nextMessages = [
-      ...messages,
-      { role: "user", content: cleanQuestion }
-    ];
+    const nextMessages = [...messages, { role: "user", content: cleanQuestion }];
 
     setQuestion("");
     setMessages(nextMessages);
@@ -46,26 +45,12 @@ export default function HomeNessieAsk() {
       const text = await res.text();
       const data = text ? JSON.parse(text) : {};
 
-      if (!res.ok) {
-        throw new Error(data.error || `Request failed with status ${res.status}`);
-      }
+      if (!res.ok) throw new Error(data.error || `Request failed with status ${res.status}`);
 
-      setMessages([
-        ...nextMessages,
-        {
-          role: "assistant",
-          content: data.answer || "Nessie could not answer that."
-        }
-      ]);
+      setMessages([...nextMessages, { role: "assistant", content: data.answer || "Nessie could not answer that." }]);
     } catch (err) {
       console.error(err);
-      setMessages([
-        ...nextMessages,
-        {
-          role: "assistant",
-          content: "Nessie had a wobble. Try again in a moment."
-        }
-      ]);
+      setMessages([...nextMessages, { role: "assistant", content: "Nessie had a wobble. Try again in a moment." }]);
     } finally {
       setLoading(false);
     }
@@ -79,10 +64,7 @@ export default function HomeNessieAsk() {
         <div className="ask-nessie-copy">
           <span className="kicker">Ask Nessie</span>
           <h2>Your personal Highlands guide.</h2>
-          <p>
-            I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky,
-            castles, hidden gems and transport.
-          </p>
+          <p>I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky, castles, hidden gems and transport.</p>
         </div>
 
         <div className="ask-nessie-chips">
@@ -94,7 +76,7 @@ export default function HomeNessieAsk() {
         </div>
 
         {messages.length > 0 && (
-          <div className="ask-nessie-thread">
+          <div className="ask-nessie-thread" ref={threadRef}>
             {messages.map((message, index) => (
               <div key={index} className={`ask-nessie-message ${message.role}`}>
                 <p>{message.content}</p>
@@ -106,8 +88,6 @@ export default function HomeNessieAsk() {
                 <p>Nessie is checking the Highlands...</p>
               </div>
             )}
-
-            <div ref={threadEndRef} />
           </div>
         )}
 

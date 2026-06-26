@@ -4763,3 +4763,169 @@ main > section:empty {
   background: rgba(255, 48, 170, .20) !important;
 }
 
+
+/* MOBILE OPTIMISATION PASS */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav-bar {
+    padding: 12px 16px !important;
+  }
+
+  .logo-mark,
+  .logo-mark img {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+  }
+
+  .nav-bar nav {
+    display: none !important;
+  }
+
+  .clean-hero {
+    min-height: 100svh !important;
+    padding: 92px 20px 230px !important;
+    background-position: center !important;
+  }
+
+  .clean-hero-content {
+    max-width: 100% !important;
+  }
+
+  .clean-hero h1 {
+    font-size: clamp(42px, 12vw, 58px) !important;
+    line-height: .92 !important;
+  }
+
+  .clean-hero p {
+    font-size: 18px !important;
+    line-height: 1.55 !important;
+  }
+
+  .ask-nessie-section {
+    margin-top: -170px !important;
+    padding: 0 14px 28px !important;
+    z-index: 50 !important;
+  }
+
+  .ask-nessie-card {
+    padding: 82px 18px 20px !important;
+    border-radius: 30px !important;
+    background:
+      radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .10), transparent 34%),
+      linear-gradient(145deg, rgba(7, 8, 18, .18), rgba(72, 0, 52, .18)) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .ask-nessie-mascot {
+    top: -50px !important;
+    right: 18px !important;
+    width: 112px !important;
+    height: 112px !important;
+  }
+
+  .ask-nessie-copy h2 {
+    font-size: clamp(38px, 11vw, 52px) !important;
+    line-height: .92 !important;
+  }
+
+  .ask-nessie-copy p {
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ask-nessie-chips {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 10px !important;
+    padding-bottom: 4px !important;
+    scrollbar-width: none !important;
+  }
+
+  .ask-nessie-chips::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .ask-nessie-chips button {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-size: 14px !important;
+    padding: 11px 14px !important;
+  }
+
+  .ask-nessie-thread {
+    max-height: 390px !important;
+    padding-right: 0 !important;
+  }
+
+  .ask-nessie-message {
+    max-width: 94% !important;
+    padding: 15px 16px !important;
+  }
+
+  .ask-nessie-message p {
+    font-size: 17px !important;
+    line-height: 1.75 !important;
+  }
+
+  .ask-nessie-form {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .ask-nessie-form input {
+    min-height: 62px !important;
+    font-size: 17px !important;
+    border-radius: 20px !important;
+  }
+
+  .ask-nessie-form button {
+    min-height: 62px !important;
+    font-size: 17px !important;
+    border-radius: 20px !important;
+  }
+
+  .clean-destinations,
+  .section,
+  .planner-layout {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .image-destination-grid,
+  .destination-grid,
+  .card-grid,
+  .transport-grid,
+  .places-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mobile-sticky-cta {
+    display: flex !important;
+  }
+
+  .footer {
+    padding-bottom: 90px !important;
+  }
+}
+
+/* SMALL PHONES */
+@media (max-width: 420px) {
+  .clean-hero h1 {
+    font-size: 40px !important;
+  }
+
+  .ask-nessie-section {
+    margin-top: -150px !important;
+  }
+
+  .ask-nessie-card {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
