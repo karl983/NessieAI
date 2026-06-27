@@ -6,15 +6,15 @@ export default function Home() {
   return (
     <main className="home-page-clean">
       <SEO
-        title="Nessie AI | Inverness & Scottish Highlands AI Travel Concierge"
-        description="Plan Inverness, Loch Ness, Isle of Skye and NC500 trips with Nessie AI."
+        title="Nessie AI | Inverness, Loch Ness & Scottish Highlands Travel Guide"
+        description="Plan Inverness, Loch Ness, Skye and Scottish Highlands trips with local AI recommendations, live weather, restaurants, itineraries and transport advice."
       />
 
       <section className="clean-hero">
         <div className="clean-hero-content">
           <span className="kicker">Inverness · Loch Ness · Skye · NC500</span>
 
-          <h1>Your AI travel concierge for the Scottish Highlands.</h1>
+          <h1>Your AI guide to Inverness, Loch Ness and the Scottish Highlands.</h1>
 
           <p>
             Plan better days around Inverness, Loch Ness, Isle of Skye and the NC500.

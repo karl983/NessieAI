@@ -14,6 +14,8 @@ import Search from "./pages/Search";
 import Tomorrow from "./pages/Tomorrow";
 import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
+import Explore from "./pages/Explore";
+import TripPlanner from "./pages/TripPlanner";
 import PlaceDetail from "./pages/PlaceDetail";
 import SEOLandingPage from "./pages/SEOLandingPage";
 
@@ -27,13 +29,14 @@ function Layout({ children }) {
         </Link>
 
         <nav>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Guide</NavLink>
+          <NavLink to="/explore">Explore</NavLink>
           <NavLink to="/inverness">Inverness</NavLink>
           <NavLink to="/loch-ness">Loch Ness</NavLink>
           <NavLink to="/skye">Skye</NavLink>
           <NavLink to="/nc500">NC500</NavLink>
           <NavLink to="/transport">Transport</NavLink>
-          <NavLink className="nav-cta" to="/planner">Plan Trip</NavLink>
+          <NavLink className="nav-cta" to="/trip-planner">Travel Planner</NavLink>
         </nav>
       </header>
 
@@ -68,6 +71,8 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/trip-planner" element={<TripPlanner />} />
           <Route path="/inverness" element={<Inverness />} />
           <Route path="/loch-ness" element={<LochNess />} />
           <Route path="/skye" element={<Skye />} />

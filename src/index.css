@@ -5347,3 +5347,80 @@ main > section:empty {
     padding: 24px 16px 90px;
   }
 }
+
+.explore-page,
+.trip-planner-page {
+  background: #020104;
+  color: white;
+}
+
+.explore-hero,
+.planner-hero-v2 {
+  min-height: 58vh;
+  padding: 150px 7vw 70px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.42)),
+    url("/images/home/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.explore-hero h1,
+.planner-hero-v2 h1 {
+  max-width: 950px;
+  margin: 10px 0 18px;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: .9;
+}
+
+.explore-hero p,
+.planner-hero-v2 p {
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.explore-grid,
+.planner-prompts {
+  padding: 42px 7vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.explore-grid button,
+.planner-prompts div {
+  text-align: left;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+  color: white;
+  padding: 22px;
+  border-radius: 24px;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .explore-hero,
+  .planner-hero-v2 {
+    padding: 110px 20px 52px;
+    min-height: 64vh;
+  }
+
+  .explore-hero h1,
+  .planner-hero-v2 h1 {
+    font-size: 44px;
+  }
+
+  .explore-hero p,
+  .planner-hero-v2 p {
+    font-size: 18px;
+  }
+
+  .explore-grid,
+  .planner-prompts {
+    padding: 28px 16px;
+    grid-template-columns: 1fr;
+  }
+}
