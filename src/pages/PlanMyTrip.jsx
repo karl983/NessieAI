@@ -2,8 +2,8 @@ import { useState } from "react";
 import SEO from "../components/SEO";
 import HomeNessieAsk from "../components/HomeNessieAsk";
 
-export default function TripPlanner() {
-  const [builtPrompt, setBuiltPrompt] = useState("");
+export default function PlanMyTrip() {
+  const [prompt, setPrompt] = useState("");
 
   function buildPrompt(e) {
     e.preventDefault();
@@ -12,31 +12,38 @@ export default function TripPlanner() {
     const days = form.get("days");
     const base = form.get("base");
     const transport = form.get("transport");
+    const interests = form.getAll("interests").join(", ");
     const group = form.get("group");
-    const interests = form.getAll("interests").join(", ") || "classic Highland highlights";
 
-    setBuiltPrompt(
-      `Build me a realistic ${days}-day Scottish Highlands itinerary. I am based in ${base}. Transport: ${transport}. Travelling as ${group}. Interests: ${interests}. Include realistic timing, food ideas, weather backup options and whether I need a private driver.`
+    setPrompt(
+      `Build me a realistic Scottish Highlands itinerary. I have ${days} day(s), I am based in ${base}, transport: ${transport}, travelling as ${group}, interests: ${interests}. Include realistic travel times, food ideas, weather-aware backup options and tell me if I need transport.`
     );
+
+    setTimeout(() => {
+      document.querySelector(".ask-nessie-form input")?.focus();
+    }, 100);
   }
 
   return (
-    <main className="v2-page">
+    <main className="plan-my-trip-page">
       <SEO
-        title="Scottish Highlands Trip Planner | Nessie AI"
-        description="Build a personalised Highlands itinerary for Inverness, Loch Ness, Skye, NC500, restaurants, whisky, castles and transport."
+        title="Plan My Highland Trip | Nessie AI"
+        description="Build a personalised Scottish Highlands itinerary for Inverness, Loch Ness, Skye, NC500, whisky, castles, restaurants and transport."
       />
 
-      <section className="v2-hero compact">
-        <span className="kicker">Travel Planner</span>
-        <h1>Build a Highland trip that actually works.</h1>
-        <p>Tell Nessie your base, time, interests and transport. Then ask for a realistic itinerary.</p>
+      <section className="plan-trip-hero">
+        <span className="kicker">Plan My Trip</span>
+        <h1>Build a realistic Highland itinerary.</h1>
+        <p>
+          Tell Nessie where you are staying, how long you have and what you enjoy.
+          Then use the generated prompt in Ask Nessie.
+        </p>
       </section>
 
-      <section className="v2-planner">
+      <section className="trip-builder-card">
         <form onSubmit={buildPrompt}>
           <label>
-            Days
+            How many days?
             <select name="days" defaultValue="2">
               <option>1</option>
               <option>2</option>
@@ -47,8 +54,8 @@ export default function TripPlanner() {
           </label>
 
           <label>
-            Base
-            <input name="base" placeholder="Inverness, Portree, Loch Ness..." required />
+            Where are you based?
+            <input name="base" placeholder="Inverness, Portree, Loch Ness, Aviemore..." required />
           </label>
 
           <label>
@@ -62,7 +69,7 @@ export default function TripPlanner() {
           </label>
 
           <label>
-            Group
+            Who is travelling?
             <select name="group" defaultValue="a couple">
               <option>a solo traveller</option>
               <option>a couple</option>
@@ -72,7 +79,7 @@ export default function TripPlanner() {
             </select>
           </label>
 
-          <div className="v2-checks">
+          <div className="trip-checks">
             {["Castles", "Whisky", "Food", "Walks", "Wildlife", "Photography", "Hidden gems", "Rainy day ideas"].map((item) => (
               <label key={item}>
                 <input type="checkbox" name="interests" value={item} />
@@ -81,20 +88,18 @@ export default function TripPlanner() {
             ))}
           </div>
 
-          <button type="submit">Create planner prompt</button>
+          <button type="submit">Create Nessie prompt</button>
         </form>
 
-        {builtPrompt && (
-          <div className="v2-generated">
+        {prompt && (
+          <div className="generated-trip-prompt">
             <strong>Copy this into Ask Nessie:</strong>
-            <p>{builtPrompt}</p>
+            <p>{prompt}</p>
           </div>
         )}
       </section>
 
-      <section className="v2-chat-wrap">
-        <HomeNessieAsk />
-      </section>
+      <HomeNessieAsk />
     </main>
   );
 }

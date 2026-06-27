@@ -5424,3 +5424,311 @@ main > section:empty {
     grid-template-columns: 1fr;
   }
 }
+
+.plan-my-trip-page {
+  background: #020104;
+  color: white;
+}
+
+.plan-trip-hero {
+  min-height: 58vh;
+  padding: 150px 7vw 70px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.84), rgba(0,0,0,.42)),
+    url("/images/home/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.plan-trip-hero h1 {
+  max-width: 950px;
+  margin: 10px 0 18px;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: .9;
+}
+
+.plan-trip-hero p {
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.trip-builder-card {
+  max-width: 980px;
+  margin: -70px auto 40px;
+  padding: 32px;
+  border-radius: 34px;
+  background: rgba(7,8,18,.78);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+  position: relative;
+  z-index: 5;
+}
+
+.trip-builder-card form {
+  display: grid;
+  gap: 16px;
+}
+
+.trip-builder-card label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255,255,255,.9);
+  font-weight: 850;
+}
+
+.trip-builder-card input,
+.trip-builder-card select {
+  min-height: 54px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: white;
+  padding: 0 14px;
+}
+
+.trip-builder-card option {
+  color: black;
+}
+
+.trip-checks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.trip-checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.07);
+}
+
+.trip-builder-card button {
+  min-height: 58px;
+  border: 0;
+  border-radius: 18px;
+  background: #d60073;
+  color: white;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.generated-trip-prompt {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.generated-trip-prompt p {
+  color: rgba(255,255,255,.9);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .plan-trip-hero {
+    padding: 110px 20px 56px;
+  }
+
+  .plan-trip-hero h1 {
+    font-size: 44px;
+  }
+
+  .trip-builder-card {
+    margin: -40px 14px 28px;
+    padding: 22px;
+  }
+
+  .trip-checks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Nessie V2 cleanup */
+.v2-page {
+  background: #020104;
+  color: white;
+  min-height: 100vh;
+}
+
+.v2-hero {
+  padding: 150px 7vw 70px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.42)),
+    url("/images/home/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.v2-hero.compact {
+  min-height: 54vh;
+}
+
+.v2-hero h1 {
+  max-width: 980px;
+  margin: 10px 0 18px;
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: .9;
+}
+
+.v2-hero p {
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.v2-card-grid {
+  padding: 52px 7vw 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.v2-card {
+  min-height: 210px;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.13);
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.v2-card h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.v2-card p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.5;
+}
+
+.v2-card span {
+  color: #ff4eb3;
+  font-weight: 950;
+}
+
+.v2-planner {
+  max-width: 980px;
+  margin: -60px auto 42px;
+  padding: 32px;
+  border-radius: 34px;
+  background: rgba(7,8,18,.82);
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+  position: relative;
+  z-index: 5;
+}
+
+.v2-planner form {
+  display: grid;
+  gap: 16px;
+}
+
+.v2-planner label {
+  display: grid;
+  gap: 8px;
+  font-weight: 850;
+  color: rgba(255,255,255,.9);
+}
+
+.v2-planner input,
+.v2-planner select {
+  min-height: 54px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: white;
+  padding: 0 14px;
+}
+
+.v2-planner option {
+  color: black;
+}
+
+.v2-checks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.v2-checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.07);
+}
+
+.v2-planner button {
+  min-height: 58px;
+  border: 0;
+  border-radius: 18px;
+  background: #d60073;
+  color: white;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.v2-generated {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.v2-generated p {
+  color: rgba(255,255,255,.9);
+  line-height: 1.6;
+}
+
+.v2-chat-wrap .ask-nessie-section {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+}
+
+@media (max-width: 900px) {
+  .v2-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .v2-checks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .v2-hero {
+    padding: 110px 20px 52px;
+  }
+
+  .v2-hero h1 {
+    font-size: 44px;
+  }
+
+  .v2-hero p {
+    font-size: 18px;
+  }
+
+  .v2-card-grid {
+    padding: 32px 16px 90px;
+    grid-template-columns: 1fr;
+  }
+
+  .v2-planner {
+    margin: -34px 14px 28px;
+    padding: 22px;
+  }
+}

@@ -16,6 +16,7 @@ import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
 import Explore from "./pages/Explore";
 import TripPlanner from "./pages/TripPlanner";
+import PlanMyTrip from "./pages/PlanMyTrip";
 import PlaceDetail from "./pages/PlaceDetail";
 import SEOLandingPage from "./pages/SEOLandingPage";
 
@@ -36,7 +37,7 @@ function Layout({ children }) {
           <NavLink to="/skye">Skye</NavLink>
           <NavLink to="/nc500">NC500</NavLink>
           <NavLink to="/transport">Transport</NavLink>
-          <NavLink className="nav-cta" to="/trip-planner">Travel Planner</NavLink>
+          <NavLink className="nav-cta" to="/plan-my-trip">Plan My Trip</NavLink>
         </nav>
       </header>
 
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/trip-planner" element={<TripPlanner />} />
+          <Route path="/plan-my-trip" element={<PlanMyTrip />} />
           <Route path="/inverness" element={<Inverness />} />
           <Route path="/loch-ness" element={<LochNess />} />
           <Route path="/skye" element={<Skye />} />

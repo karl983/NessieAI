@@ -1,47 +1,40 @@
+import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
-import HomeNessieAsk from "../components/HomeNessieAsk";
 
-const topics = [
-  "Restaurants in Inverness",
-  "Rainy day ideas",
-  "Castles near Inverness",
-  "Loch Ness viewpoints",
-  "Skye day trips",
-  "NC500 planning",
-  "Whisky tours",
-  "Dolphin watching",
-  "Waterfalls",
-  "Private drivers",
-  "Cruise excursions",
-  "Family days out"
+const categories = [
+  ["Restaurants", "Find places to eat around Inverness, Loch Ness, Skye and the NC500.", "/inverness-restaurants"],
+  ["Castles", "Culloden, Urquhart, Cawdor, Dunrobin and Highland history.", "/inverness"],
+  ["Loch Ness", "Cruises, viewpoints, Urquhart Castle, Dores Beach and day routes.", "/loch-ness"],
+  ["Isle of Skye", "Storr, Portree, Fairy Pools, weather and realistic routes.", "/skye"],
+  ["NC500", "Route planning, driving advice, stops and realistic timing.", "/nc500"],
+  ["Transport", "Private drivers, airport transfers, cruise tours and golf transfers.", "/transport"],
+  ["Rainy Days", "Indoor ideas, short routes, food, whisky and weather-aware planning.", "/trip-planner"],
+  ["Whisky", "Distilleries, whisky bars and driver-friendly planning.", "/trip-planner"]
 ];
 
 export default function Explore() {
   return (
-    <main className="explore-page">
+    <main className="v2-page">
       <SEO
-        title="Explore the Scottish Highlands | Nessie AI"
-        description="Explore Inverness, Loch Ness, Skye, NC500, restaurants, whisky, waterfalls, castles and Highland transport with Nessie AI."
+        title="Explore Inverness, Loch Ness, Skye & the Highlands | Nessie AI"
+        description="Explore Highland restaurants, castles, whisky, Skye, Loch Ness, NC500 routes and transport with Nessie AI."
       />
 
-      <section className="explore-hero">
-        <span className="kicker">Explore the Highlands</span>
-        <h1>Find what to do, where to eat and how to get there.</h1>
-        <p>
-          Search Highland ideas by interest, weather, location or travel style.
-          Nessie helps turn vague plans into realistic days out.
-        </p>
+      <section className="v2-hero compact">
+        <span className="kicker">Explore</span>
+        <h1>Choose what you want to discover.</h1>
+        <p>Fast routes into the best parts of the Highlands — food, castles, whisky, weather-proof ideas, Skye, Loch Ness and the NC500.</p>
       </section>
 
-      <section className="explore-grid">
-        {topics.map((topic) => (
-          <button key={topic} onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}>
-            {topic}
-          </button>
+      <section className="v2-card-grid">
+        {categories.map(([title, text, link]) => (
+          <Link className="v2-card" to={link} key={title}>
+            <h2>{title}</h2>
+            <p>{text}</p>
+            <span>Explore →</span>
+          </Link>
         ))}
       </section>
-
-      <HomeNessieAsk />
     </main>
   );
 }
