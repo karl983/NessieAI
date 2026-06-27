@@ -27,15 +27,11 @@ export default function HomeNessieAsk() {
       return [];
     }
   });
+
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState(null);
   const [locationStatus, setLocationStatus] = useState("");
   const threadRef = useRef(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("nessie-location-ok");
-    if (saved === "yes") requestLocation(false);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("nessie-chat", JSON.stringify(messages.slice(-12)));
@@ -47,44 +43,51 @@ export default function HomeNessieAsk() {
     el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
 
-  function requestLocation(showAlerts = true) {
+  function requestLocation() {
     if (!navigator.geolocation) {
-      if (showAlerts) alert("Location is not supported on this device.");
-      setLocationStatus("Location not supported on this device.");
+      setLocation(null);
+      setLocationStatus("Location not supported. Type your area instead.");
       return;
     }
 
-    setLocationStatus("Finding precise location...");
+    setLocationStatus("Checking GPS accuracy...");
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
+        const accuracy = pos.coords.accuracy;
+
+        if (accuracy > 100) {
+          setLocation(null);
+          localStorage.setItem("nessie-location-ok", "no");
+          setLocationStatus(
+            `Location rejected — only accurate to about ${Math.round(
+              accuracy
+            )}m. Type your town, hotel or area instead.`
+          );
+          return;
+        }
+
         const coords = {
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude,
-          accuracy: pos.coords.accuracy
+          accuracy
         };
 
         setLocation(coords);
         localStorage.setItem("nessie-location-ok", "yes");
-
-        if (coords.accuracy > 100) {
-          setLocationStatus(`Location found, but only accurate to about ${Math.round(coords.accuracy)}m.`);
-          if (showAlerts) {
-            alert(`Nessie found your location, but only within ${Math.round(coords.accuracy)} metres. For better nearby recommendations, turn on precise location/GPS and try again.`);
-          }
-        } else {
-          setLocationStatus(`Precise location active, accurate to about ${Math.round(coords.accuracy)}m.`);
-        }
+        setLocationStatus(
+          `GPS location active — about ${Math.round(accuracy)}m accuracy.`
+        );
       },
       () => {
+        setLocation(null);
         localStorage.setItem("nessie-location-ok", "no");
         setLocationStatus("Location off. Type your area and Nessie can still help.");
-        if (showAlerts) alert("Location permission was denied. Nessie can still help if you type where you are.");
       },
       {
         enableHighAccuracy: true,
         maximumAge: 0,
-        timeout: 15000
+        timeout: 20000
       }
     );
   }
@@ -113,7 +116,9 @@ export default function HomeNessieAsk() {
       const text = await res.text();
       const data = text ? JSON.parse(text) : {};
 
-      if (!res.ok) throw new Error(data.error || `Request failed with status ${res.status}`);
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed with status ${res.status}`);
+      }
 
       setMessages([
         ...nextMessages,
@@ -130,7 +135,10 @@ export default function HomeNessieAsk() {
       console.error(err);
       setMessages([
         ...nextMessages,
-        { role: "assistant", content: "Nessie had a wobble. Try again in a moment." }
+        {
+          role: "assistant",
+          content: "Nessie had a wobble. Try again in a moment."
+        }
       ]);
     } finally {
       setLoading(false);
@@ -156,8 +164,8 @@ export default function HomeNessieAsk() {
           </p>
         </div>
 
-        <button className="ask-nessie-location" type="button" onClick={() => requestLocation(true)}>
-          Use precise location for nearby ideas
+        <button className="ask-nessie-location" type="button" onClick={requestLocation}>
+          Use GPS location if accurate
         </button>
 
         {locationStatus && (
@@ -197,7 +205,9 @@ export default function HomeNessieAsk() {
                 {message.showTransportCard && (
                   <div className="ask-nessie-transport-card">
                     <strong>Need Highland transport?</strong>
-                    <span>Airport transfers, private drivers, cruise tours, golf transfers and Skye day trips.</span>
+                    <span>
+                      Airport transfers, private drivers, cruise tours, golf transfers and Skye day trips.
+                    </span>
                     <a href="/transport?source=ask-nessie">Get a transport quote</a>
                   </div>
                 )}
