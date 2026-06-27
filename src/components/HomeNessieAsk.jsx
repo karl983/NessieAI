@@ -20,6 +20,7 @@ function cleanText(text) {
 
 export default function HomeNessieAsk() {
   const [question, setQuestion] = useState("");
+  const [manualLocation, setManualLocation] = useState("");
   const [messages, setMessages] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("nessie-chat") || "[]");
@@ -29,7 +30,7 @@ export default function HomeNessieAsk() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [location, setLocation] = useState(null);
+  const [gpsLocation, setGpsLocation] = useState(null);
   const [locationStatus, setLocationStatus] = useState("");
   const threadRef = useRef(null);
 
@@ -45,8 +46,8 @@ export default function HomeNessieAsk() {
 
   function requestLocation() {
     if (!navigator.geolocation) {
-      setLocation(null);
-      setLocationStatus("Location not supported. Type your area instead.");
+      setGpsLocation(null);
+      setLocationStatus("GPS is not supported. Type your area instead.");
       return;
     }
 
@@ -57,32 +58,26 @@ export default function HomeNessieAsk() {
         const accuracy = pos.coords.accuracy;
 
         if (accuracy > 100) {
-          setLocation(null);
-          localStorage.setItem("nessie-location-ok", "no");
+          setGpsLocation(null);
           setLocationStatus(
-            `Location rejected — only accurate to about ${Math.round(
+            `GPS rejected — only accurate to about ${Math.round(
               accuracy
-            )}m. Type your town, hotel or area instead.`
+            )}m. Type where you are instead.`
           );
           return;
         }
 
-        const coords = {
+        setGpsLocation({
           latitude: pos.coords.latitude,
           longitude: pos.coords.longitude,
           accuracy
-        };
+        });
 
-        setLocation(coords);
-        localStorage.setItem("nessie-location-ok", "yes");
-        setLocationStatus(
-          `GPS location active — about ${Math.round(accuracy)}m accuracy.`
-        );
+        setLocationStatus(`GPS active — about ${Math.round(accuracy)}m accuracy.`);
       },
       () => {
-        setLocation(null);
-        localStorage.setItem("nessie-location-ok", "no");
-        setLocationStatus("Location off. Type your area and Nessie can still help.");
+        setGpsLocation(null);
+        setLocationStatus("GPS unavailable. Type where you are instead.");
       },
       {
         enableHighAccuracy: true,
@@ -97,6 +92,11 @@ export default function HomeNessieAsk() {
 
     const cleanQuestion = (overrideQuestion || question).trim();
     if (!cleanQuestion || loading) return;
+
+    const location = {
+      manual: manualLocation.trim(),
+      gps: gpsLocation
+    };
 
     const nextMessages = [...messages, { role: "user", content: cleanQuestion }];
 
@@ -164,9 +164,16 @@ export default function HomeNessieAsk() {
           </p>
         </div>
 
-        <button className="ask-nessie-location" type="button" onClick={requestLocation}>
-          Use GPS location if accurate
-        </button>
+        <div className="ask-nessie-location-row">
+          <input
+            value={manualLocation}
+            onChange={(e) => setManualLocation(e.target.value)}
+            placeholder="I’m near... Inverness Castle, Portree, Kingsmills Hotel"
+          />
+          <button type="button" onClick={requestLocation}>
+            Use GPS
+          </button>
+        </div>
 
         {locationStatus && (
           <p className="ask-nessie-location-status">{locationStatus}</p>
