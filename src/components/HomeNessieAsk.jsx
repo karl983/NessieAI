@@ -28,7 +28,38 @@ export default function HomeNessieAsk() {
     }
   });
   const [loading, setLoading] = useState(false);
+  const [location, setLocation] = useState(null);
   const threadRef = useRef(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("nessie-location-ok");
+    if (saved !== "yes") return;
+    requestLocation();
+  }, []);
+
+  function requestLocation() {
+    if (!navigator.geolocation) return;
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const coords = {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude
+        };
+
+        setLocation(coords);
+        localStorage.setItem("nessie-location-ok", "yes");
+      },
+      () => {
+        localStorage.setItem("nessie-location-ok", "no");
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 300000,
+        timeout: 10000
+      }
+    );
+  }
 
   useEffect(() => {
     localStorage.setItem("nessie-chat", JSON.stringify(messages.slice(-12)));
@@ -58,7 +89,7 @@ export default function HomeNessieAsk() {
       const res = await fetch(import.meta.env.VITE_NESSIE_WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: cleanQuestion, history })
+        body: JSON.stringify({ question: cleanQuestion, history, location })
       });
 
       const text = await res.text();
@@ -105,6 +136,12 @@ export default function HomeNessieAsk() {
             castles, hidden gems, live weather and transport.
           </p>
         </div>
+
+        {!location && (
+          <button className="ask-nessie-location" type="button" onClick={requestLocation}>
+            Use my location for nearby ideas
+          </button>
+        )}
 
         <div className="ask-nessie-chips">
           {examples.map((item) => (
