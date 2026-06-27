@@ -15,6 +15,7 @@ import Tomorrow from "./pages/Tomorrow";
 import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
 import PlaceDetail from "./pages/PlaceDetail";
+import SEOLandingPage from "./pages/SEOLandingPage";
 
 function Layout({ children }) {
   return (
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/why-nessie" element={<WhyNessie />} />
           <Route path="/place/:slug" element={<PlaceDetail />} />
+          <Route path="/:slug" element={<SEOLandingPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
