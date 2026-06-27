@@ -5221,3 +5221,10 @@ main > section:empty {
     text-align: center;
   }
 }
+
+.ask-nessie-location,
+.ask-nessie-location-row,
+.ask-nessie-location-status {
+  display: none !important;
+}
+
