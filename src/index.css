@@ -5732,3 +5732,59 @@ main > section:empty {
     padding: 22px;
   }
 }
+
+/* Move mobile CTAs from bottom to header */
+.mobile-header-actions {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+
+  .mobile-header-actions {
+    display: flex !important;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .mobile-header-actions a {
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 950;
+    color: white;
+    text-decoration: none;
+    background: rgba(0,0,0,.72);
+    border: 1px solid rgba(255,255,255,.18);
+    white-space: nowrap;
+  }
+
+  .mobile-header-actions a:first-child {
+    background: #e3138b;
+    border-color: rgba(255,255,255,.22);
+  }
+
+  .mobile-sticky-cta {
+    display: none !important;
+  }
+
+  .logo span:last-child small {
+    display: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-header-actions a {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .logo strong {
+    font-size: 15px !important;
+  }
+}

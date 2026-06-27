@@ -29,6 +29,11 @@ function Layout({ children }) {
           <span><strong>Nessie AI</strong><small>Highlands Concierge</small></span>
         </Link>
 
+        <div className="mobile-header-actions">
+          <Link to="/trip-planner">Plan Trip</Link>
+          <Link to="/transport">Transport</Link>
+        </div>
+
         <nav>
           <NavLink to="/">Guide</NavLink>
           <NavLink to="/explore">Explore</NavLink>
