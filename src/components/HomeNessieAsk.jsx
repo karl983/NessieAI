@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const examples = [
+  "What is good near me?",
   "Plan one day in Inverness",
-  "Best lunch in Inverness",
   "What should I do tomorrow if it rains?",
+  "Best lunch near me",
   "Can I do Skye in one day?",
-  "Where can I see dolphins?",
   "Do I need a private driver?"
 ];
 
@@ -29,37 +29,13 @@ export default function HomeNessieAsk() {
   });
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState(null);
+  const [locationStatus, setLocationStatus] = useState("");
   const threadRef = useRef(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("nessie-location-ok");
-    if (saved !== "yes") return;
-    requestLocation();
+    if (saved === "yes") requestLocation(false);
   }, []);
-
-  function requestLocation() {
-    if (!navigator.geolocation) return;
-
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const coords = {
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude
-        };
-
-        setLocation(coords);
-        localStorage.setItem("nessie-location-ok", "yes");
-      },
-      () => {
-        localStorage.setItem("nessie-location-ok", "no");
-      },
-      {
-        enableHighAccuracy: true,
-        maximumAge: 300000,
-        timeout: 10000
-      }
-    );
-  }
 
   useEffect(() => {
     localStorage.setItem("nessie-chat", JSON.stringify(messages.slice(-12)));
@@ -70,6 +46,48 @@ export default function HomeNessieAsk() {
     if (!el) return;
     el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
+
+  function requestLocation(showAlerts = true) {
+    if (!navigator.geolocation) {
+      if (showAlerts) alert("Location is not supported on this device.");
+      setLocationStatus("Location not supported on this device.");
+      return;
+    }
+
+    setLocationStatus("Finding precise location...");
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const coords = {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+          accuracy: pos.coords.accuracy
+        };
+
+        setLocation(coords);
+        localStorage.setItem("nessie-location-ok", "yes");
+
+        if (coords.accuracy > 100) {
+          setLocationStatus(`Location found, but only accurate to about ${Math.round(coords.accuracy)}m.`);
+          if (showAlerts) {
+            alert(`Nessie found your location, but only within ${Math.round(coords.accuracy)} metres. For better nearby recommendations, turn on precise location/GPS and try again.`);
+          }
+        } else {
+          setLocationStatus(`Precise location active, accurate to about ${Math.round(coords.accuracy)}m.`);
+        }
+      },
+      () => {
+        localStorage.setItem("nessie-location-ok", "no");
+        setLocationStatus("Location off. Type your area and Nessie can still help.");
+        if (showAlerts) alert("Location permission was denied. Nessie can still help if you type where you are.");
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: 15000
+      }
+    );
+  }
 
   async function askNessie(e, overrideQuestion) {
     e?.preventDefault();
@@ -104,7 +122,8 @@ export default function HomeNessieAsk() {
           content: cleanText(data.answer || "Nessie could not answer that."),
           places: data.places || [],
           showTransportCard: Boolean(data.showTransportCard),
-          weatherUsed: Boolean(data.weatherUsed)
+          weatherUsed: Boolean(data.weatherUsed),
+          locationUsed: Boolean(data.locationUsed)
         }
       ]);
     } catch (err) {
@@ -133,14 +152,16 @@ export default function HomeNessieAsk() {
           <h2>Your personal Highlands guide.</h2>
           <p>
             I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky,
-            castles, hidden gems, live weather and transport.
+            castles, hidden gems, live weather, nearby ideas and transport.
           </p>
         </div>
 
-        {!location && (
-          <button className="ask-nessie-location" type="button" onClick={requestLocation}>
-            Use my location for nearby ideas
-          </button>
+        <button className="ask-nessie-location" type="button" onClick={() => requestLocation(true)}>
+          Use precise location for nearby ideas
+        </button>
+
+        {locationStatus && (
+          <p className="ask-nessie-location-status">{locationStatus}</p>
         )}
 
         <div className="ask-nessie-chips">
@@ -157,9 +178,10 @@ export default function HomeNessieAsk() {
               <div key={index} className={`ask-nessie-message ${message.role}`}>
                 <p>{message.content}</p>
 
-                {message.weatherUsed && (
-                  <span className="ask-nessie-tag">Live weather used</span>
-                )}
+                <div className="ask-nessie-tags">
+                  {message.weatherUsed && <span>Live weather used</span>}
+                  {message.locationUsed && <span>Location aware</span>}
+                </div>
 
                 {message.places?.length > 0 && (
                   <div className="ask-nessie-places">
