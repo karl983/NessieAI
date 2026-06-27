@@ -1,19 +1,38 @@
 import { useEffect, useRef, useState } from "react";
 
 const examples = [
+  "Plan one day in Inverness",
   "Best lunch in Inverness",
+  "What should I do tomorrow if it rains?",
   "Can I do Skye in one day?",
   "Where can I see dolphins?",
-  "Hidden waterfalls near Loch Ness",
-  "Best whisky tour from Inverness",
   "Do I need a private driver?"
 ];
 
+function cleanText(text) {
+  return String(text || "")
+    .replace(/#{1,6}\s?/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
+    .replace(/^\s*[-•]\s+/gm, "")
+    .trim();
+}
+
 export default function HomeNessieAsk() {
   const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("nessie-chat") || "[]");
+    } catch {
+      return [];
+    }
+  });
   const [loading, setLoading] = useState(false);
   const threadRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem("nessie-chat", JSON.stringify(messages.slice(-12)));
+  }, [messages]);
 
   useEffect(() => {
     const el = threadRef.current;
@@ -51,16 +70,26 @@ export default function HomeNessieAsk() {
         ...nextMessages,
         {
           role: "assistant",
-          content: data.answer || "Nessie could not answer that.",
-          showTransportCard: Boolean(data.showTransportCard)
+          content: cleanText(data.answer || "Nessie could not answer that."),
+          places: data.places || [],
+          showTransportCard: Boolean(data.showTransportCard),
+          weatherUsed: Boolean(data.weatherUsed)
         }
       ]);
     } catch (err) {
       console.error(err);
-      setMessages([...nextMessages, { role: "assistant", content: "Nessie had a wobble. Try again in a moment." }]);
+      setMessages([
+        ...nextMessages,
+        { role: "assistant", content: "Nessie had a wobble. Try again in a moment." }
+      ]);
     } finally {
       setLoading(false);
     }
+  }
+
+  function clearChat() {
+    setMessages([]);
+    localStorage.removeItem("nessie-chat");
   }
 
   return (
@@ -71,7 +100,10 @@ export default function HomeNessieAsk() {
         <div className="ask-nessie-copy">
           <span className="kicker">Ask Nessie</span>
           <h2>Your personal Highlands guide.</h2>
-          <p>I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky, castles, hidden gems and transport.</p>
+          <p>
+            I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky,
+            castles, hidden gems, live weather and transport.
+          </p>
         </div>
 
         <div className="ask-nessie-chips">
@@ -87,6 +119,21 @@ export default function HomeNessieAsk() {
             {messages.map((message, index) => (
               <div key={index} className={`ask-nessie-message ${message.role}`}>
                 <p>{message.content}</p>
+
+                {message.weatherUsed && (
+                  <span className="ask-nessie-tag">Live weather used</span>
+                )}
+
+                {message.places?.length > 0 && (
+                  <div className="ask-nessie-places">
+                    {message.places.slice(0, 3).map((place) => (
+                      <a key={place.title} href={place.mapsUrl} target="_blank" rel="noreferrer">
+                        <strong>{place.title}</strong>
+                        <span>{place.region} · Open in Maps</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
 
                 {message.showTransportCard && (
                   <div className="ask-nessie-transport-card">
@@ -116,6 +163,12 @@ export default function HomeNessieAsk() {
             {loading ? "Thinking..." : "Ask Nessie"}
           </button>
         </form>
+
+        {messages.length > 0 && (
+          <button className="ask-nessie-clear" type="button" onClick={clearChat}>
+            Start a fresh chat
+          </button>
+        )}
       </div>
     </section>
   );
