@@ -5858,3 +5858,80 @@ main > section:empty {
     font-size: 12px !important;
   }
 }
+
+/* Simple SEO quick-win section */
+.popular-searches {
+  padding: 52px 7vw 36px;
+  background: #020104;
+  text-align: center;
+}
+
+.popular-searches h2 {
+  max-width: 820px;
+  margin: 8px auto 28px;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: .95;
+  color: white;
+}
+
+.popular-links {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.popular-links a {
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+}
+
+.popular-links a:hover {
+  background: #d60073;
+}
+
+.last-updated {
+  margin: 30px 0 80px;
+  text-align: center;
+  color: rgba(255,255,255,.55);
+  font-size: 14px;
+}
+
+.footer-guides {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-guides a {
+  color: white;
+  opacity: .86;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .popular-searches {
+    padding: 36px 16px 24px;
+  }
+
+  .popular-links {
+    justify-content: flex-start;
+  }
+
+  .popular-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-guides {
+    display: grid;
+    gap: 10px;
+  }
+}

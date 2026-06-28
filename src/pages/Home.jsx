@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import ImageDestinationGrid from "../components/ImageDestinationGrid";
 import HomeNessieAsk from "../components/HomeNessieAsk";
@@ -7,7 +8,7 @@ export default function Home() {
     <main className="home-page-clean">
       <SEO
         title="Nessie AI | Inverness, Loch Ness & Scottish Highlands Travel Guide"
-        description="Plan Inverness, Loch Ness, Skye and Scottish Highlands trips with local AI recommendations, live weather, restaurants, itineraries and transport advice."
+        description="Plan your visit to Inverness, Loch Ness, the Isle of Skye and the Scottish Highlands. Discover restaurants, castles, whisky, NC500 routes, transport and local recommendations with Nessie AI."
       />
 
       <section className="clean-hero">
@@ -23,6 +24,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="popular-searches">
+        <span className="kicker">Popular Highland Guides</span>
+        <h2>Start with what visitors search for most.</h2>
+
+        <div className="popular-links">
+          <Link to="/inverness">Things to do in Inverness</Link>
+          <Link to="/inverness-restaurants">Inverness restaurants</Link>
+          <Link to="/loch-ness">Visit Loch Ness</Link>
+          <Link to="/skye">Isle of Skye day trips</Link>
+          <Link to="/nc500">Plan the NC500</Link>
+          <Link to="/transport">Highlands transport</Link>
+          <Link to="/trip-planner">Trip planner</Link>
+          <Link to="/what-to-do-in-inverness-tomorrow">What to do tomorrow</Link>
+        </div>
+      </section>
+
       <HomeNessieAsk />
 
       <section className="clean-destinations move-up">
@@ -30,6 +47,8 @@ export default function Home() {
         <h2>Choose the part of the Highlands you want to explore.</h2>
         <ImageDestinationGrid />
       </section>
+
+      <p className="last-updated">Last updated: June 2026</p>
     </main>
   );
 }

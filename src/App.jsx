@@ -57,8 +57,20 @@ function Layout({ children }) {
       <footer className="footer">
         <div>
           <strong>Nessie AI</strong>
-          <p>Your AI travel concierge for Inverness and the Scottish Highlands.</p>
+          <p>Your AI travel guide for Inverness, Loch Ness, Skye, the NC500 and the Scottish Highlands.</p>
         </div>
+
+        <div className="footer-guides">
+          <Link to="/inverness">Inverness</Link>
+          <Link to="/loch-ness">Loch Ness</Link>
+          <Link to="/skye">Skye</Link>
+          <Link to="/nc500">NC500</Link>
+          <Link to="/transport">Transport</Link>
+          <Link to="/explore">Explore</Link>
+          <Link to="/trip-planner">Trip Planner</Link>
+          <Link to="/inverness-restaurants">Restaurants</Link>
+        </div>
+
         <div>
           <Link to="/how-it-works">How It Works</Link>
           <Link to="/why-nessie">Why Nessie</Link>
