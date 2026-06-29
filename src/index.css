@@ -6738,3 +6738,37 @@ main > section:empty {
     box-sizing: border-box !important;
   }
 }
+
+/* CLEAN ASK NESSIE: remove intro/chips and fix mascot */
+.ask-nessie-copy,
+.ask-nessie-chips {
+  display: none !important;
+}
+
+.ask-nessie-card.ask-nessie-compact-card {
+  overflow: visible !important;
+  padding: 92px 34px 34px !important;
+}
+
+.ask-nessie-card.ask-nessie-compact-card .ask-nessie-mascot {
+  top: -58px !important;
+  right: 36px !important;
+  width: 132px !important;
+  height: 132px !important;
+  object-fit: contain !important;
+  z-index: 50 !important;
+}
+
+@media (max-width: 768px) {
+  .ask-nessie-card.ask-nessie-compact-card {
+    padding: 74px 18px 20px !important;
+    overflow: visible !important;
+  }
+
+  .ask-nessie-card.ask-nessie-compact-card .ask-nessie-mascot {
+    top: -42px !important;
+    right: 22px !important;
+    width: 92px !important;
+    height: 92px !important;
+  }
+}

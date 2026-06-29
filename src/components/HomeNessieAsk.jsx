@@ -1,14 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-const examples = [
-  "Plan one day in Inverness",
-  "What should I do tomorrow if it rains?",
-  "Best lunch in Inverness",
-  "Can I do Skye in one day?",
-  "Where can I see dolphins?",
-  "Do I need a private driver?"
-];
-
 function cleanText(text) {
   return String(text || "")
     .replace(/#{1,6}\s?/g, "")
@@ -41,10 +32,10 @@ export default function HomeNessieAsk() {
     el.scrollTop = el.scrollHeight;
   }, [messages, loading]);
 
-  async function askNessie(e, overrideQuestion) {
+  async function askNessie(e) {
     e?.preventDefault();
 
-    const cleanQuestion = (overrideQuestion || question).trim();
+    const cleanQuestion = question.trim();
     if (!cleanQuestion || loading) return;
 
     const nextMessages = [...messages, { role: "user", content: cleanQuestion }];
@@ -95,25 +86,8 @@ export default function HomeNessieAsk() {
 
   return (
     <section className="ask-nessie-section">
-      <div className="ask-nessie-card">
+      <div className="ask-nessie-card ask-nessie-compact-card">
         <img className="ask-nessie-mascot" src="/images/nessie-mascot.png" alt="Nessie" />
-
-        <div className="ask-nessie-copy">
-          <span className="kicker">Ask Nessie</span>
-          <h2>Your personal Highlands guide.</h2>
-          <p>
-            I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky,
-            castles, hidden gems, live weather and transport.
-          </p>
-        </div>
-
-        <div className="ask-nessie-chips">
-          {examples.map((item) => (
-            <button key={item} type="button" onClick={(e) => askNessie(e, item)}>
-              {item}
-            </button>
-          ))}
-        </div>
 
         {messages.length > 0 && (
           <div className="ask-nessie-thread" ref={threadRef}>
