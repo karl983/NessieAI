@@ -6210,3 +6210,36 @@ main > section:empty {
     font-size: 21px;
   }
 }
+
+/* FORCE RESTORE HOMEPAGE SCENIC BACKGROUND */
+.home-page-clean.home-v2-fixed,
+.home-v2-fixed {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.72)),
+    url("/images/home/hero.jpg") center top / cover fixed no-repeat !important;
+}
+
+.home-page-clean.home-v2-fixed::before,
+.home-v2-fixed::before {
+  display: none !important;
+}
+
+.home-v2-assistant,
+.home-v2-destinations,
+.clean-destinations,
+.home-v2-fixed .clean-destinations,
+.home-v2-fixed section {
+  background: transparent !important;
+}
+
+.home-v2-left,
+.home-v2-chat .ask-nessie-card {
+  background: rgba(8, 8, 16, .48) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.home-v2-destinations {
+  padding-top: 34px !important;
+}
+
