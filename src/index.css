@@ -6404,3 +6404,34 @@ main > section:empty {
     border-radius: 22px;
   }
 }
+
+/* Fix SEO landing pages: stop Ask Nessie overlapping content */
+.seo-page .ask-nessie-section {
+  margin-top: 40px !important;
+  padding: 40px 7vw 60px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.seo-page .ask-nessie-card {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.seo-faq {
+  position: relative !important;
+  z-index: 2 !important;
+  padding-bottom: 40px !important;
+}
+
+.seo-faq-item {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 768px) {
+  .seo-page .ask-nessie-section {
+    margin-top: 20px !important;
+    padding: 28px 14px 50px !important;
+  }
+}
