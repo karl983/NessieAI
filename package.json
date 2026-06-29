@@ -14,5 +14,8 @@
     "react-dom": "latest",
     "react-router-dom": "^7.18.0",
     "vite": "latest"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.2"
   }
 }
