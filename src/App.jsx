@@ -27,7 +27,7 @@ function Layout({ children }) {
       <header className="nav-bar">
         <Link className="logo" to="/">
           <span className="logo-mark"><img src="/images/nessie-mascot.png" alt="Nessie AI" /></span>
-          <span><strong>Nessie AI</strong><small>Highlands Concierge</small></span>
+          <span><strong>Nessie AI</strong></span>
         </Link>
 
         <div className="mobile-header-actions">
