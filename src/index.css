@@ -6610,3 +6610,27 @@ main > section:empty {
   }
 }
 
+
+/* FIX HOMEPAGE NESSIE MASCOT CROPPING */
+@media (max-width: 768px) {
+  .home-v2-chat,
+  .home-v2-chat .ask-nessie-section,
+  .home-v2-chat .ask-nessie-card {
+    overflow: visible !important;
+  }
+
+  .home-v2-chat .ask-nessie-card {
+    padding-top: 78px !important;
+  }
+
+  .home-v2-chat .ask-nessie-mascot {
+    width: 96px !important;
+    height: 96px !important;
+    top: -48px !important;
+    right: 22px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    z-index: 50 !important;
+    display: block !important;
+  }
+}
