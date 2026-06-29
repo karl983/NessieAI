@@ -1,0 +1,41 @@
+[
+  {
+    "id": "coul-house-hotel-contin",
+    "category": "accommodation",
+    "region": "Highlands",
+    "title": "Coul House Hotel",
+    "summary": "Coul House Hotel is a accommodation in Contin, useful for visitors exploring the Scottish Highlands.",
+    "keywords": [
+      "Coul House Hotel",
+      "accommodation",
+      "Highlands",
+      "Contin",
+      "Highlands",
+      "visitor",
+      "local business"
+    ],
+    "content": {
+      "description": "Hotel and restaurant near Rogie Falls. Good lunch stop near Contin.",
+      "history": "",
+      "local_tip": "Check the official website or contact the business directly for current opening times, availability and booking details.",
+      "best_time": "Check current opening times before travelling.",
+      "common_mistake": "Assuming opening hours, menus or availability are always the same — confirm before visiting.",
+      "transport_note": "Contin, Highlands.",
+      "booking_advice": "Check directly with the business before visiting or booking.",
+      "price_context": "Check directly for current pricing.",
+      "route_advice": ""
+    },
+    "commercial": {
+      "partner": false,
+      "featured": false,
+      "priority": 0,
+      "lead_enabled": false,
+      "booking_url": "",
+      "affiliate_url": "",
+      "discount_code": "",
+      "tracking_id": "coul-house-hotel-contin",
+      "package": "free",
+      "last_updated": "2026-06-29"
+    }
+  }
+]
