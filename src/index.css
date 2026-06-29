@@ -6865,3 +6865,8 @@ main > section:empty {
     transform: none !important;
   }
 }
+
+.ask-nessie-places {
+  display: none !important;
+}
+

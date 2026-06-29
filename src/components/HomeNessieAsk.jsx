@@ -108,17 +108,6 @@ export default function HomeNessieAsk() {
                   {message.weatherUsed && <span>Live weather used</span>}
                 </div>
 
-                {message.places?.length > 0 && (
-                  <div className="ask-nessie-places">
-                    {message.places.slice(0, 3).map((place) => (
-                      <a key={place.title} href={place.mapsUrl} target="_blank" rel="noreferrer">
-                        <strong>{place.title}</strong>
-                        <span>{place.region} · Open in Maps</span>
-                      </a>
-                    ))}
-                  </div>
-                )}
-
                 {message.showTransportCard && (
                   <div className="ask-nessie-transport-card">
                     <strong>Need Highland transport?</strong>
