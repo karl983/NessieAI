@@ -25,7 +25,7 @@ export default function Home() {
       <section className="clean-hero home-v2-hero">
         <div className="clean-hero-content">
           <span className="kicker">Inverness · Loch Ness · Skye · NC500</span>
-          <h1>Your AI guide to Inverness, Loch Ness and the Scottish Highlands.</h1>
+          <h1>Your Complete Guide to Inverness, Loch Ness, Skye, the NC500 and the Scottish Highlands.</h1>
           <p>
             Plan the perfect trip to Inverness, Loch Ness, Isle of Skye and the NC500 with Nessie — your free AI travel guide for the Scottish Highlands. Get honest local tips, restaurant recommendations, hidden gems, day trip routes, live weather and transport advice.
           </p>
