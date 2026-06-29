@@ -33,41 +33,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-v2-assistant">
-        <div className="home-v2-left">
-          <span className="kicker">Popular Highland searches</span>
-          <h2>Start here.</h2>
-          <p>Tap a common visitor question, or ask Nessie anything on the right.</p>
-
-          <div className="home-v2-question-list">
-            {quickQuestions.map(([label, prompt]) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => {
-                  const input = document.querySelector(".ask-nessie-form input");
-                  if (input) {
-                    input.value = prompt;
-                    input.dispatchEvent(new Event("input", { bubbles: true }));
-                    input.focus();
-                  }
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
-          <div className="home-v2-links">
-            <Link to="/explore">Explore the Highlands</Link>
-            <Link to="/trip-planner">Build a trip</Link>
-            <Link to="/transport">Need transport?</Link>
-          </div>
-        </div>
-
-        <div className="home-v2-chat">
-          <HomeNessieAsk />
-        </div>
+      <section className="home-v2-chat-only">
+        <HomeNessieAsk />
       </section>
 
       <section className="clean-destinations home-v2-destinations">
