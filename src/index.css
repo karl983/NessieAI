@@ -5935,3 +5935,278 @@ main > section:empty {
     gap: 10px;
   }
 }
+
+/* FINAL HOMEPAGE FIX — left list + right Ask Nessie */
+.home-v2-fixed {
+  background: #020104 !important;
+}
+
+.home-v2-hero {
+  min-height: 72vh !important;
+  padding-bottom: 120px !important;
+}
+
+.home-v2-assistant {
+  width: min(1280px, calc(100% - 48px));
+  margin: -82px auto 54px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: 24px;
+  align-items: stretch;
+  position: relative;
+  z-index: 30;
+}
+
+.home-v2-left {
+  border-radius: 34px;
+  padding: 30px;
+  background: rgba(6, 8, 18, .82);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 28px 90px rgba(0,0,0,.5);
+}
+
+.home-v2-left h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: .95;
+  color: white;
+}
+
+.home-v2-left p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.home-v2-question-list {
+  display: grid;
+  gap: 10px;
+}
+
+.home-v2-question-list button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.075);
+  color: white;
+  padding: 15px 16px;
+  border-radius: 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.home-v2-question-list button:hover {
+  background: rgba(214,0,115,.32);
+}
+
+.home-v2-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.home-v2-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 950;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.13);
+}
+
+.home-v2-chat .ask-nessie-section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.home-v2-chat .ask-nessie-card {
+  min-height: 100% !important;
+  padding: 72px 34px 30px !important;
+  border-radius: 34px !important;
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 48, 170, .13), transparent 34%),
+    linear-gradient(145deg, rgba(7, 8, 18, .70), rgba(72, 0, 52, .52)) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.home-v2-chat .ask-nessie-mascot {
+  top: -58px !important;
+  right: 34px !important;
+  width: 126px !important;
+  height: 126px !important;
+}
+
+.home-v2-chat .ask-nessie-copy h2 {
+  font-size: clamp(38px, 4.8vw, 64px) !important;
+}
+
+.home-v2-chat .ask-nessie-copy p {
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+.home-v2-chat .ask-nessie-chips {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.home-v2-chat .ask-nessie-chips button {
+  font-size: 13px !important;
+  padding: 9px 11px !important;
+}
+
+.home-v2-destinations {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+}
+
+.popular-searches {
+  display: none !important;
+}
+
+/* FAQ professional rebuild */
+.faq-v2-page {
+  background: #020104;
+  color: white;
+}
+
+.faq-v2-hero {
+  padding: 150px 7vw 70px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.84), rgba(0,0,0,.42)),
+    url("/images/home/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.faq-v2-hero h1 {
+  max-width: 980px;
+  margin: 10px 0 18px;
+  font-size: clamp(46px, 7vw, 92px);
+  line-height: .9;
+}
+
+.faq-v2-hero p {
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.faq-v2-list {
+  width: min(1100px, calc(100% - 48px));
+  margin: 46px auto 90px;
+  display: grid;
+  gap: 14px;
+}
+
+.faq-v2-list article {
+  padding: 26px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.faq-v2-list h2 {
+  margin: 0 0 10px;
+  font-size: 25px;
+  color: white;
+}
+
+.faq-v2-list p {
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  line-height: 1.65;
+}
+
+/* Mobile homepage: no horrible overlap, no giant pasted card */
+@media (max-width: 768px) {
+  .home-v2-hero {
+    min-height: 82vh !important;
+    padding: 92px 20px 120px !important;
+  }
+
+  .home-v2-assistant {
+    width: calc(100% - 28px);
+    margin: -46px auto 32px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-v2-left {
+    padding: 22px;
+    border-radius: 28px;
+  }
+
+  .home-v2-left h2 {
+    font-size: 38px;
+  }
+
+  .home-v2-question-list {
+    grid-template-columns: 1fr;
+  }
+
+  .home-v2-chat .ask-nessie-card {
+    padding: 76px 20px 22px !important;
+    border-radius: 28px !important;
+  }
+
+  .home-v2-chat .ask-nessie-mascot {
+    top: -50px !important;
+    right: 20px !important;
+    width: 108px !important;
+    height: 108px !important;
+  }
+
+  .home-v2-chat .ask-nessie-copy h2 {
+    font-size: 39px !important;
+  }
+
+  .home-v2-chat .ask-nessie-chips {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+
+  .home-v2-chat .ask-nessie-chips::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .home-v2-chat .ask-nessie-chips button {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  .home-v2-chat .ask-nessie-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .faq-v2-hero {
+    padding: 110px 20px 54px;
+  }
+
+  .faq-v2-hero h1 {
+    font-size: 43px;
+  }
+
+  .faq-v2-hero p {
+    font-size: 18px;
+  }
+
+  .faq-v2-list {
+    width: calc(100% - 28px);
+    margin: 28px auto 90px;
+  }
+
+  .faq-v2-list article {
+    padding: 20px;
+  }
+
+  .faq-v2-list h2 {
+    font-size: 21px;
+  }
+}

@@ -3,47 +3,75 @@ import SEO from "../components/SEO";
 import ImageDestinationGrid from "../components/ImageDestinationGrid";
 import HomeNessieAsk from "../components/HomeNessieAsk";
 
+const quickQuestions = [
+  ["Best restaurants in Inverness", "Best restaurants in Inverness tonight"],
+  ["What to do if it rains", "What should I do in Inverness tomorrow if it rains?"],
+  ["Can I do Skye in one day?", "Can I do Skye in one day from Inverness?"],
+  ["Loch Ness day trip", "Plan a realistic Loch Ness day trip from Inverness"],
+  ["Private driver or transport", "Do I need a private driver for Skye or Loch Ness?"],
+  ["Dolphins near Inverness", "Where can I see dolphins near Inverness?"],
+  ["Whisky ideas", "Best whisky experiences near Inverness"],
+  ["NC500 planning", "Help me plan the NC500 from Inverness"]
+];
+
 export default function Home() {
   return (
-    <main className="home-page-clean">
+    <main className="home-page-clean home-v2-fixed">
       <SEO
         title="Nessie AI | Inverness, Loch Ness & Scottish Highlands Travel Guide"
         description="Plan your visit to Inverness, Loch Ness, the Isle of Skye and the Scottish Highlands. Discover restaurants, castles, whisky, NC500 routes, transport and local recommendations with Nessie AI."
       />
 
-      <section className="clean-hero">
+      <section className="clean-hero home-v2-hero">
         <div className="clean-hero-content">
           <span className="kicker">Inverness · Loch Ness · Skye · NC500</span>
-
           <h1>Your AI guide to Inverness, Loch Ness and the Scottish Highlands.</h1>
-
           <p>
             Plan better days around Inverness, Loch Ness, Isle of Skye and the NC500.
-            Get realistic routes, local-style ideas and transport help when you need it.
+            Get realistic routes, local-style ideas, live weather and transport help.
           </p>
         </div>
       </section>
 
-      <section className="popular-searches">
-        <span className="kicker">Popular Highland Guides</span>
-        <h2>Start with what visitors search for most.</h2>
+      <section className="home-v2-assistant">
+        <div className="home-v2-left">
+          <span className="kicker">Popular Highland searches</span>
+          <h2>Start here.</h2>
+          <p>Tap a common visitor question, or ask Nessie anything on the right.</p>
 
-        <div className="popular-links">
-          <Link to="/inverness">Things to do in Inverness</Link>
-          <Link to="/inverness-restaurants">Inverness restaurants</Link>
-          <Link to="/loch-ness">Visit Loch Ness</Link>
-          <Link to="/skye">Isle of Skye day trips</Link>
-          <Link to="/nc500">Plan the NC500</Link>
-          <Link to="/transport">Highlands transport</Link>
-          <Link to="/trip-planner">Trip planner</Link>
-          <Link to="/what-to-do-in-inverness-tomorrow">What to do tomorrow</Link>
+          <div className="home-v2-question-list">
+            {quickQuestions.map(([label, prompt]) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => {
+                  const input = document.querySelector(".ask-nessie-form input");
+                  if (input) {
+                    input.value = prompt;
+                    input.dispatchEvent(new Event("input", { bubbles: true }));
+                    input.focus();
+                  }
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div className="home-v2-links">
+            <Link to="/explore">Explore the Highlands</Link>
+            <Link to="/trip-planner">Build a trip</Link>
+            <Link to="/transport">Need transport?</Link>
+          </div>
+        </div>
+
+        <div className="home-v2-chat">
+          <HomeNessieAsk />
         </div>
       </section>
 
-      <HomeNessieAsk />
-
-      <section className="clean-destinations move-up">
-        <span className="kicker">Start with a destination</span>
+      <section className="clean-destinations home-v2-destinations">
+        <span className="kicker">Destinations</span>
         <h2>Choose the part of the Highlands you want to explore.</h2>
         <ImageDestinationGrid />
       </section>
