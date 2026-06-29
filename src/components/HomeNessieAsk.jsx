@@ -86,8 +86,17 @@ export default function HomeNessieAsk() {
 
   return (
     <section className="ask-nessie-section">
-      <div className="ask-nessie-card ask-nessie-compact-card">
+      <div className="ask-nessie-card">
         <img className="ask-nessie-mascot" src="/images/nessie-mascot.png" alt="Nessie" />
+
+        <div className="ask-nessie-copy">
+          <span className="kicker">Ask Nessie</span>
+          <h2>Your personal Highlands guide.</h2>
+          <p>
+            I know Inverness, Loch Ness, Skye, the NC500, restaurants, whisky,
+            castles, hidden gems, live weather and transport.
+          </p>
+        </div>
 
         {messages.length > 0 && (
           <div className="ask-nessie-thread" ref={threadRef}>

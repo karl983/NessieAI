@@ -6772,3 +6772,32 @@ main > section:empty {
     height: 92px !important;
   }
 }
+
+/* Restore Ask Nessie layout, remove only suggestion chips */
+.ask-nessie-copy {
+  display: block !important;
+}
+
+.ask-nessie-chips {
+  display: none !important;
+}
+
+.ask-nessie-card {
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .ask-nessie-card {
+    padding-top: 76px !important;
+    overflow: visible !important;
+  }
+
+  .ask-nessie-mascot {
+    top: -46px !important;
+    right: 22px !important;
+    width: 92px !important;
+    height: 92px !important;
+    object-fit: contain !important;
+    z-index: 50 !important;
+  }
+}
