@@ -27,8 +27,7 @@ export default function Home() {
           <span className="kicker">Inverness · Loch Ness · Skye · NC500</span>
           <h1>Your AI guide to Inverness, Loch Ness and the Scottish Highlands.</h1>
           <p>
-            Plan better days around Inverness, Loch Ness, Isle of Skye and the NC500.
-            Get realistic routes, local-style ideas, live weather and transport help.
+            Plan the perfect trip to Inverness, Loch Ness, Isle of Skye and the NC500 with Nessie — your free AI travel guide for the Scottish Highlands. Get honest local tips, restaurant recommendations, hidden gems, day trip routes, live weather and transport advice.
           </p>
         </div>
       </section>
