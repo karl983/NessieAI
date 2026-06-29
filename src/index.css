@@ -6870,3 +6870,39 @@ main > section:empty {
   display: none !important;
 }
 
+
+/* FIX PLAN MY TRIP PAGE CHAT OVERLAP */
+.plan-my-trip-page .ask-nessie-section,
+.trip-planner-page .ask-nessie-section,
+.v2-chat-wrap .ask-nessie-section {
+  margin: 50px auto 70px !important;
+  padding: 0 20px !important;
+  width: min(920px, calc(100% - 40px)) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.plan-my-trip-page .ask-nessie-card,
+.trip-planner-page .ask-nessie-card,
+.v2-chat-wrap .ask-nessie-card {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 920px !important;
+}
+
+.trip-builder-card,
+.v2-planner {
+  position: relative !important;
+  z-index: 5 !important;
+  margin-bottom: 40px !important;
+}
+
+@media (max-width: 768px) {
+  .plan-my-trip-page .ask-nessie-section,
+  .trip-planner-page .ask-nessie-section,
+  .v2-chat-wrap .ask-nessie-section {
+    width: calc(100% - 28px) !important;
+    padding: 0 !important;
+    margin: 34px auto 60px !important;
+  }
+}
