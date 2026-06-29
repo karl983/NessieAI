@@ -6580,3 +6580,33 @@ main > section:empty {
     background: transparent !important;
   }
 }
+
+/* FIX NESSIE MASCOT CROPPING ON MOBILE */
+@media (max-width: 768px) {
+  .ask-nessie-card {
+    overflow: visible !important;
+  }
+
+  .ask-nessie-mascot,
+  .home-v2-chat .ask-nessie-mascot,
+  .v2-chat-wrap .ask-nessie-mascot,
+  .trip-planner-page .ask-nessie-mascot,
+  .plan-my-trip-page .ask-nessie-mascot {
+    width: 92px !important;
+    height: 92px !important;
+    top: -46px !important;
+    right: 22px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    z-index: 20 !important;
+    transform: none !important;
+  }
+
+  .home-v2-chat .ask-nessie-card,
+  .v2-chat-wrap .ask-nessie-card,
+  .trip-planner-page .ask-nessie-card,
+  .plan-my-trip-page .ask-nessie-card {
+    padding-top: 72px !important;
+  }
+}
+
