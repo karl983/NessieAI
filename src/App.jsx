@@ -15,6 +15,7 @@ import Tomorrow from "./pages/Tomorrow";
 import HowItWorks from "./pages/HowItWorks";
 import WhyNessie from "./pages/WhyNessie";
 import Explore from "./pages/Explore";
+import ExploreGuide from "./pages/ExploreGuide";
 import TripPlanner from "./pages/TripPlanner";
 import PlanMyTrip from "./pages/PlanMyTrip";
 import PlaceDetail from "./pages/PlaceDetail";
@@ -90,6 +91,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/explore/:category" element={<ExploreGuide />} />
           <Route path="/trip-planner" element={<TripPlanner />} />
           <Route path="/plan-my-trip" element={<PlanMyTrip />} />
           <Route path="/inverness" element={<Inverness />} />

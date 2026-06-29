@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 
 const categories = [
-  ["Restaurants", "Find places to eat around Inverness, Loch Ness, Skye and the NC500.", "/inverness-restaurants"],
-  ["Castles", "Culloden, Urquhart, Cawdor, Dunrobin and Highland history.", "/inverness"],
-  ["Loch Ness", "Cruises, viewpoints, Urquhart Castle, Dores Beach and day routes.", "/loch-ness"],
-  ["Isle of Skye", "Storr, Portree, Fairy Pools, weather and realistic routes.", "/skye"],
-  ["NC500", "Route planning, driving advice, stops and realistic timing.", "/nc500"],
-  ["Transport", "Private drivers, airport transfers, cruise tours and golf transfers.", "/transport"],
-  ["Rainy Days", "Indoor ideas, short routes, food, whisky and weather-aware planning.", "/trip-planner"],
-  ["Whisky", "Distilleries, whisky bars and driver-friendly planning.", "/trip-planner"]
+  ["Restaurants", "Find places to eat around Inverness, Loch Ness, Skye and the NC500.", "/explore/restaurants"],
+  ["Castles", "Culloden, Urquhart, Cawdor, Dunrobin and Highland history.", "/explore/castles"],
+  ["Loch Ness", "Cruises, viewpoints, Urquhart Castle, Dores Beach and day routes.", "/explore/loch-ness"],
+  ["Isle of Skye", "Storr, Portree, Fairy Pools, weather and realistic routes.", "/explore/skye"],
+  ["NC500", "Route planning, driving advice, stops and realistic timing.", "/explore/nc500"],
+  ["Transport", "Private drivers, airport transfers, cruise tours and golf transfers.", "/explore/transport"],
+  ["Rainy Days", "Indoor ideas, short routes, food, whisky and weather-aware planning.", "/explore/rainy-days"],
+  ["Whisky", "Distilleries, whisky bars and driver-friendly planning.", "/explore/whisky"]
 ];
 
 export default function Explore() {
