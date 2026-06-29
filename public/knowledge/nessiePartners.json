@@ -1,0 +1,30 @@
+[
+  {
+    "id": "demo-transport-partner",
+    "name": "Nessie Transport Enquiry",
+    "category": "transport",
+    "regions": ["Inverness", "Loch Ness", "Skye", "NC500", "Highlands"],
+    "featured": true,
+    "partner": true,
+    "priority": 100,
+    "lead_enabled": true,
+    "cta_label": "Get a transport quote",
+    "cta_url": "/transport?source=ask-nessie",
+    "offer": "Airport transfers, private drivers, cruise tours, golf transfers and Skye day trips.",
+    "match_keywords": ["driver", "transfer", "taxi", "transport", "airport", "skye", "cruise", "golf", "whisky"]
+  },
+  {
+    "id": "demo-restaurant-feature",
+    "name": "Featured Restaurant Partner",
+    "category": "restaurants",
+    "regions": ["Inverness"],
+    "featured": false,
+    "partner": false,
+    "priority": 10,
+    "lead_enabled": false,
+    "cta_label": "Restaurant partner slot available",
+    "cta_url": "/partners",
+    "offer": "Premium restaurant placement available for selected Inverness partners.",
+    "match_keywords": ["restaurant", "eat", "food", "lunch", "dinner", "breakfast", "pub"]
+  }
+]

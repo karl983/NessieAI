@@ -65,7 +65,8 @@ export default function HomeNessieAsk() {
           content: cleanText(data.answer || "Nessie could not answer that."),
           places: data.places || [],
           showTransportCard: Boolean(data.showTransportCard),
-          weatherUsed: Boolean(data.weatherUsed)
+          weatherUsed: Boolean(data.weatherUsed),
+          partnerCtas: data.partnerCtas || []
         }
       ]);
     } catch (err) {
@@ -107,6 +108,19 @@ export default function HomeNessieAsk() {
                 <div className="ask-nessie-tags">
                   {message.weatherUsed && <span>Live weather used</span>}
                 </div>
+
+
+                {message.partnerCtas?.length > 0 && (
+                  <div className="ask-nessie-partner-cards">
+                    {message.partnerCtas.slice(0, 2).map((partner) => (
+                      <a key={partner.id} href={partner.cta_url} className="ask-nessie-partner-card">
+                        <strong>{partner.name}</strong>
+                        <span>{partner.offer}</span>
+                        <em>{partner.cta_label}</em>
+                      </a>
+                    ))}
+                  </div>
+                )}
 
                 {message.showTransportCard && (
                   <div className="ask-nessie-transport-card">

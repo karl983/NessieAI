@@ -6906,3 +6906,37 @@ main > section:empty {
     margin: 34px auto 60px !important;
   }
 }
+
+.ask-nessie-partner-cards {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ask-nessie-partner-card {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  text-decoration: none;
+  color: white;
+}
+
+.ask-nessie-partner-card strong {
+  font-size: 15px;
+}
+
+.ask-nessie-partner-card span {
+  opacity: .78;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ask-nessie-partner-card em {
+  color: #ff4db8;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 13px;
+}
